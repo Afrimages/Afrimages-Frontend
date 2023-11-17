@@ -1,8 +1,16 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import { Poppins } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+import './globals.css';
+import Navbar from '@/components/ui/Navbar';
+import Footer from '@/components/ui/Footer';
+
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+});
 
 export const metadata: Metadata = {
   title: 'Afrimages',
@@ -16,7 +24,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={`${poppins.variable} font-poppins`}>
+        <Navbar />
+
+        {children}
+
+        <Footer />
+      </body>
     </html>
   );
 }
