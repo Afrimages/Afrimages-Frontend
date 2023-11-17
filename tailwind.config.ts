@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -8,13 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        poppins: ['var(--font-poppins)'],
+      },
+      colors: {
+        green500: '#A9DCB3',
+        green800: '#459A56',
+        green1000: '#295C34',
+        green1100: '#1B3D22',
+        orange800: '#E76020',
+        orange900: '#C0501A',
+      },
+      spacing: {
+        xPadding: '5.2%',
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
