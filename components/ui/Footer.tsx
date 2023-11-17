@@ -68,7 +68,7 @@ const Footer = () => {
         {footerContent.map((item, i) => {
           return (
             <div key={item.title}>
-              <h2 className='text-[1.5em] font-bold border-b-4 mb-4 border-solid  border-orange800 inline'>
+              <h2 className='text-[1.2em] font-semibold border-b-2 mb-4 border-solid  border-orange800 inline'>
                 {item.title}
               </h2>
 
@@ -86,19 +86,19 @@ const Footer = () => {
         })}
 
         <div>
-          <h2 className='text-[1.5em] font-bold border-b-4 mb-4 border-solid  border-orange800 inline'>
+          <h2 className='text-[1.2em] font-semibold border-b-2 mb-4 border-solid border-orange800 inline'>
             Social Media
           </h2>
-          <div className='py-2'>
-            <div className='flex'>
-              <RiFacebookLine size={35} />
-              <RiTwitterLine size={35} />
-              <RiInstagramLine size={35} />
+          <div className='py-2 gap-2 flex flex-col'>
+            <div className='flex gap-2'>
+              <RiFacebookLine className="circle" size={35} />
+              <RiTwitterLine className="circle" size={35} />
+              <RiInstagramLine className="circle" size={35} />
             </div>
 
             <p className='text-white'>Get exclusive updates just for you</p>
 
-            <div className='bg-orange800 text-white py-3 px-6 text-[0.8em] rounded-md w-fit'>
+            <div className='bg-orange800 text-white py-3 px-6 text-[0.8em] rounded-md w-fit cursor-pointer'>
               Sign Up
             </div>
           </div>
