@@ -27,7 +27,7 @@ export default function Main() {
             <div
               key={i}
               className={`'cursor-pointer' ${
-                select === i && 'border-b-orange800 border-2'
+                select === i && 'border-b-orange800 border-b-2'
               }`}
             >
               {item}
