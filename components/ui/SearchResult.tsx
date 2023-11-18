@@ -25,7 +25,7 @@ const SearchResult = () => {
         }
     ]
   return (
-    <div className='my-10 px-xPadding min-h-[70vh]'>
+    <div className='mt-24 px-xPadding min-h-[70vh]'>
         <p className='text-[1.2em] text-gray-500'>Results for <span className='font-bold text-black'>{search}</span> </p>
 
         <div className="more-options flex items-center justify-center my-3 gap-10">

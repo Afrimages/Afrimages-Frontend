@@ -4,7 +4,7 @@ import { RiSearch2Line } from 'react-icons/ri';
 export default function Hero() {
   return (
     <section
-      className='w-full h-[90vh] bg-amber-200 bg-cover bg-center bg-no-repeat flex flex-col gap-5 items-center justify-center text-center'
+      className='w-full h-[100vh] bg-amber-200 bg-cover bg-center bg-no-repeat flex flex-col gap-5 items-center justify-center text-center'
       style={{ backgroundImage: `url(./banner.png)` }}
     >
       {/* <img src="./banner.png" alt="" className='w-full h-full'/> */}
