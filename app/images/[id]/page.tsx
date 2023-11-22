@@ -9,6 +9,7 @@ const page = () => {
         <Navbar />
         
         <ImagePage />
+        <Footer />
     </>
   )
 }

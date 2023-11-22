@@ -24,3 +24,15 @@
 .set{
   @apply border-gray-500 text-gray-500 border-[1px] rounded-md p-2 items-center
 }
+
+.auth{
+  @apply mt-6
+}
+
+.auth > div{
+  @apply flex flex-col gap-1
+}
+
+.auth > div input{
+  @apply border-black border-[1px] p-2 rounded-lg
+}
