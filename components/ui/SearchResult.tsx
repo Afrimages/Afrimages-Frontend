@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { RiImage2Fill, RiVideoFill } from 'react-icons/ri'
+import H_ImagesContainer from './H_ImagesContainer'
 
 const SearchResult = () => {
     const search = "Food"
@@ -24,6 +25,39 @@ const SearchResult = () => {
             value: "800"
         }
     ]
+
+    const images = [
+        {
+            imageUrl: "./banner.png",
+            id: "sin89enewe",
+            title: "Boys Playing",
+            creator: {
+                profilePicture: "./logo.png",
+                _id: "wwi929212h",
+                fullName: "Emmy Ogunmepon"
+            }
+        },
+        {
+            imageUrl: "./pp.png",
+            id: "sin89enewe",
+            title: "Boys Playing",
+            creator: {
+                profilePicture: "./logo.png",
+                _id: "wwi929212h",
+                fullName: "Emmy Ogunmepon"
+            }
+        },
+        {
+            imageUrl: "./banner.png",
+            id: "sin89enewe",
+            title: "Boys Playing",
+            creator: {
+                profilePicture: "./logo.png",
+                _id: "wwi929212h",
+                fullName: "Emmy Ogunmepon"
+            }
+        }
+    ]
   return (
     <div className='mt-24 px-xPadding min-h-[70vh]'>
         <p className='text-[1.2em] text-gray-500'>Results for <span className='font-bold text-black'>{search}</span> </p>
@@ -44,7 +78,7 @@ const SearchResult = () => {
             }
         </div>
 
-
+        <H_ImagesContainer images={images}/>
     </div>
   )
 }
