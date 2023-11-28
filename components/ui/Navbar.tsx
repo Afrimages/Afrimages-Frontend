@@ -50,7 +50,7 @@ export default function Navbar({ active = 0 }) {
         <input type='text' className='outline-none focus:outline-none w-[100%]' placeholder='Search for Images here...' />
       </div>
 
-        <div className="cursor-pointer">Upload Content</div>
+        <div className="cursor-pointer">Join Community</div>
 
         <a href="/sign-up">
           <div className='bg-green800 text-white py-2 px-4 rounded-md cursor-pointer'>

@@ -9,13 +9,13 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <SearchResult />
+      {/* <SearchResult /> */}
 
-      {/* <div>
+      <div>
         <Hero />
         <Main />
         <Banner />
-      </div> */}
+      </div>
       <Footer />
     </div>
   );
