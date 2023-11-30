@@ -36,7 +36,7 @@ const H_ImagesContainer = ({images}: any) => {
     ]
 
   return (
-    <div className='grid grid-cols-3 gap-3'>
+    <div className='grid grid-cols-3 md:grid-cols-none gap-3 my-10'>
         <V_ImagesContainer images={images}/>
         <V_ImagesContainer images={images3}/>
         <V_ImagesContainer images={images}/>

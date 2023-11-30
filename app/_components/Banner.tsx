@@ -4,7 +4,7 @@ import clusterImg from '@/public/cluster.png';
 
 export default function Banner() {
   return (
-    <section className='flex gap-5 my-10 py-20 px-xPadding items-center bg-green500'>
+    <section className='flex md:flex-col gap-5 my-10 py-20 px-xPadding items-center bg-green500'>
       <div className='flex gap-2 flex-col'>
         <h1 className='text-[2em] text-orange900'>
           Join <span className='text-green1000'>Afrimages&apos;</span> Creator

@@ -8,6 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        sm: { max: "600px" },
+        sm1: { max: "768px" },
+        md: { max: "900px" },
+        md1: { max: "850px" },
+        lg: { max: "4070px" },
+        ls: { max: "1370px" },
+        xl: { max: "1250px" },
+        lf: { max: "1150px" },
+      },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
       },
