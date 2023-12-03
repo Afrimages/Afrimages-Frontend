@@ -9,18 +9,47 @@
 } */
 
 .grid-4 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-.circle{
-  @apply border-white border-2 rounded-full p-2
+@layer components {
+    .circle {
+        @apply border-white border-2 rounded-full p-2;
+    }
+
+    .set-3 {
+        @apply flex gap-2 items-center;
+    }
+
+    .set {
+        @apply border-gray-500 text-gray-500 border-[1px] rounded-md p-2 items-center;
+    }
+
+    .btn-main {
+        @apply bg-orange-700 font-medium text-white text-sm rounded;
+    }
 }
 
-.set-3{
-  @apply flex gap-2 items-center
+/*  ------------------------------------------------
+    Custom Styling for Creator Page at app/creator
+    ------------------------------------------------   */
+
+.gradient-green {
+    background: linear-gradient(
+        90deg,
+        #62b66f 0%,
+        rgba(0, 40, 6, 0.82) 111.75%
+    );
 }
 
-.set{
-  @apply border-gray-500 text-gray-500 border-[1px] rounded-md p-2 items-center
+.overlay-top::after {
+    content: url('../public/svg/creator-gradient.svg');
+    position: absolute;
+    width: fit-content;
+    top: -110%;
+    /* left: 0; */
+    /* right: 0; */
+    left: 50%;
+    transform: translateX(-50%);
 }
