@@ -238,7 +238,38 @@ export default function Creator() {
             </section>
 
             {/* Question Section */}
-            <section></section>
+            <section className='py-24'>
+                <h1 className='text-2xl font-medium text-center'>
+                    Do you have questions for us ? we are available to answer
+                    your questions{' '}
+                </h1>
+
+                <form className='mx-auto w-[80%] border border-black mt-9 rounded-lg'>
+                    <input
+                        type='text'
+                        required
+                        placeholder='Type your questions'
+                        className='bg-offWhite px-6 py-7 w-full rounded-lg placeholder:text-[#545454] font-light'
+                    />
+
+                    <div className='px-6 py-3.5 w-full flex items-center justify-between border-t border-black'>
+                        <input
+                            type='email'
+                            maxLength={40}
+                            placeholder='Your email address'
+                            required
+                            className='flex-1 placeholder:text-[#545454] font-light'
+                        />
+
+                        <button
+                            type='submit'
+                            className='py-2.5 px-10 border border-black font-medium rounded text-sm'
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </section>
 
             {/* CTA (Call to Action) Section*/}
             <section></section>
