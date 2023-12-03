@@ -26,8 +26,14 @@
         @apply border-gray-500 text-gray-500 border-[1px] rounded-md p-2 items-center;
     }
 
+    /* TODO: Changes bg-orange-700 to bg-orange700 */
+
     .btn-main {
         @apply bg-orange-700 font-medium text-white text-sm rounded;
+    }
+
+    .btn-outline {
+        @apply text-orange-700 border-2 border-orange-700 text-sm rounded font-medium;
     }
 }
 
@@ -52,4 +58,12 @@
     /* right: 0; */
     left: 50%;
     transform: translateX(-50%);
+}
+
+.gradient-collage {
+    background: linear-gradient(
+        180deg,
+        rgba(221, 142, 102, 0.19) 0%,
+        rgba(73, 114, 70, 0) 70.83%
+    );
 }
