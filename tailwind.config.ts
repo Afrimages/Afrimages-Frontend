@@ -11,6 +11,7 @@ const config: Config = {
             fontFamily: {
                 poppins: ['var(--font-poppins)'],
                 nunito: ['var(--font-nunito)'],
+                montserrat: ['var(--font-montserrat)'],
             },
             colors: {
                 green500: '#A9DCB3',
@@ -20,6 +21,8 @@ const config: Config = {
                 green1100: '#1B3D22',
                 orange800: '#E76020',
                 orange900: '#C0501A',
+
+                offWhite: '#F9F9F9',
             },
             spacing: {
                 xPadding: '5.2%',

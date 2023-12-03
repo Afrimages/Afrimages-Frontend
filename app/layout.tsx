@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Nunito, Poppins } from 'next/font/google';
+import { Montserrat, Nunito, Poppins } from 'next/font/google';
 
 import './globals.css';
 import Navbar from '@/components/ui/Navbar';
@@ -18,6 +18,13 @@ const nunito = Nunito({
     variable: '--font-nunito',
 });
 
+const montserrat = Montserrat({
+    weight: ['300', '500'],
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-montserrat',
+});
+
 export const metadata: Metadata = {
     title: 'Afrimages',
     description: 'Providing African images for individuals and designers',
@@ -31,7 +38,7 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body
-                className={`${poppins.variable} ${nunito.variable} font-poppins`}
+                className={`${poppins.variable} ${nunito.variable} ${montserrat.variable} font-poppins`}
             >
                 <main className='max-w-[1440px] mx-auto overflow-hidden'>
                     {children}

@@ -9,6 +9,13 @@ import whyCollageImg2 from '@/public/images/creator/creator-why-collage-2.png';
 import whyCollageImg3 from '@/public/images/creator/creator-why-collage-3.png';
 import whyCollageImg4 from '@/public/images/creator/creator-why-collage-4.png';
 
+import heartOutlineIcon from '@/public/svg/heart-outline.svg';
+import atomIcon from '@/public/svg/atom.svg';
+import feedbackIcon from '@/public/svg/feedback.svg';
+import uploadIcon from '@/public/svg/upload-linear.svg';
+import tagsIcon from '@/public/svg/tags.svg';
+import monitorIcon from '@/public/svg/monitor.svg';
+
 export default function Creator() {
     return (
         <div className='font-lato py-14'>
@@ -61,8 +68,8 @@ export default function Creator() {
                 </div>
             </section>
 
-            {/* Why Section */}
-            <section className='bg-[#F9F9F9] py-20 pb-10'>
+            {/* Info Section */}
+            <section className='bg-offWhite py-20 pb-10'>
                 <div className='text-center mb-12'>
                     <h1 className='text-[2rem] font-bold leading-[3rem]'>
                         Your talent deserves recognition and we are here to
@@ -122,6 +129,111 @@ export default function Creator() {
                             View guidelines
                         </button>
                     </div>
+                </div>
+            </section>
+
+            {/* Why Section */}
+            <section>
+                <h1 className='text-center font-medium text-[2rem]'>
+                    Why you should become a contributor on{' '}
+                    <span className='text-green1000 font-bold'>afrimages</span>
+                </h1>
+
+                <div className='flex items-center justify-center gap-8 mt-9 mb-6'>
+                    {[
+                        {
+                            text: 'Get recognized and given due credit for your creativity; as a contributor on afrimages you can be rest assured that we wont take credit for your work as your name or initials will be attached to every upload ',
+                            icon: heartOutlineIcon,
+                        },
+                        {
+                            text: 'Visibility and exposure; contributing on afrimages will gurantee you the necessary exposure  and visibility that your work and creativity deserves to get',
+                            icon: atomIcon,
+                        },
+                        {
+                            text: 'Feedback and tips; we know that as a creative one of the most important things apart from getting credit is feedback that is why at afrimages we have made it imperative to encourage our users to give feedback.   ',
+                            icon: feedbackIcon,
+                        },
+                    ].map((item, index) => (
+                        <div
+                            key={item.text.slice(0, 10)}
+                            className={`border border-black rounded-[10px] w-[330px] h-[210px] py-3.5 px-7 ${
+                                index === 0 || index === 2 ? 'bg-offWhite' : ''
+                            }`}
+                        >
+                            <div
+                                className={`rounded-full w-8 h-8 flex items-center justify-center ${
+                                    index === 0 || index === 2
+                                        ? 'bg-[#EBE5D6]'
+                                        : 'bg-transparent border border-black'
+                                }`}
+                            >
+                                <Image
+                                    src={item.icon}
+                                    alt=''
+                                    width={20}
+                                    height={20}
+                                />
+                            </div>
+
+                            <p className='mt-2.5 leading-[19px] tracking-[0.5px] text-[#545454]'>
+                                {item.text}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className='text-center'>
+                    <button className='btn-main py-2.5 px-6 mt-6 mb-12'>
+                        Become a contributor
+                    </button>
+                </div>
+
+                <h1 className='font-medium text-[32px] leading-[38px] text-center'>
+                    Creative tools we provided to make your uploading easy and
+                    seamless{' '}
+                </h1>
+
+                <div className='flex items-center justify-center gap-9 bg-offWhite pt-5 pb-12 mt-8'>
+                    {[
+                        {
+                            heading: 'Batch uploading',
+                            text: 'You can upload your content in batches',
+                            icon: uploadIcon,
+                        },
+
+                        {
+                            heading: 'Tags and initials',
+                            text: 'Personalize your content by adding tags',
+                            icon: tagsIcon,
+                        },
+                        {
+                            heading: 'Monitor your downloads',
+                            text: 'you can monitor how our users react to your content  ',
+                            icon: monitorIcon,
+                        },
+                    ].map((item) => (
+                        <div
+                            key={item.heading}
+                            className='font-montserrat text-center'
+                        >
+                            <div className='rounded-full w-8 h-8 flex items-center justify-center bg-[#EBE5D6] mx-auto'>
+                                <Image
+                                    src={item.icon}
+                                    alt=''
+                                    width={20}
+                                    height={20}
+                                />
+                            </div>
+
+                            <h3 className='mt-3.5 mb-1 text-xl font-medium leading-6'>
+                                {item.heading}
+                            </h3>
+
+                            <p className='font-light leading-4 text-sm'>
+                                {item.text}
+                            </p>
+                        </div>
+                    ))}
                 </div>
             </section>
 
