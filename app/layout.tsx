@@ -1,35 +1,44 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Nunito, Poppins } from 'next/font/google';
 
 import './globals.css';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 
 const poppins = Poppins({
-  weight: ['400', '500', '600', '700', '800', '900'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-poppins',
+    weight: ['400', '500', '600', '700', '800', '900'],
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-poppins',
+});
+
+const nunito = Nunito({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-nunito',
 });
 
 export const metadata: Metadata = {
-  title: 'Afrimages',
-  description: 'Providing African images for individuals and designers',
+    title: 'Afrimages',
+    description: 'Providing African images for individuals and designers',
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return (
-    <html lang='en'>
-      <body className={`${poppins.variable} font-poppins`}>
+    return (
+        <html lang='en'>
+            <body
+                className={`${poppins.variable} ${nunito.variable} font-poppins`}
+            >
+                <main className='max-w-[1440px] mx-auto overflow-hidden'>
+                    {children}
+                </main>
 
-        {children}
-
-        <Footer />
-      </body>
-    </html>
-  );
+                <Footer />
+            </body>
+        </html>
+    );
 }
