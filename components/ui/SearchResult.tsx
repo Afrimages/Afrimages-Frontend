@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import { RiImage2Fill, RiVideoFill } from 'react-icons/ri'
+import { RiCollageFill, RiImage2Fill, RiVideoFill } from 'react-icons/ri'
 import H_ImagesContainer from './H_ImagesContainer'
 
 const SearchResult = () => {
@@ -20,8 +20,8 @@ const SearchResult = () => {
             value: "300"
         },
         {
-            title: "Video",
-            icon: <RiVideoFill />,
+            title: "Collection",
+            icon: <RiCollageFill />,
             value: "800"
         }
     ]
