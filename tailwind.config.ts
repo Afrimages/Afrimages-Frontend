@@ -27,12 +27,19 @@ const config: Config = {
                 grey100: '#FAF9F8',
                 grey500: '#BDB4AD',
                 grey600: '#7D736C',
+                grey900: '#292421',
+
+                success: '#0E8A1A',
             },
             spacing: {
                 xPadding: '5.2%',
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/forms')({
+            strategy: 'class', // only generate classes
+        }),
+    ],
 };
 export default config;
