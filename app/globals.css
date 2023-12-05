@@ -26,14 +26,12 @@
         @apply border-gray-500 text-gray-500 border-[1px] rounded-md p-2 items-center;
     }
 
-    /* TODO: Changes bg-orange-700 to bg-orange700 */
-
     .btn-main {
-        @apply bg-orange-700 font-medium text-white text-sm rounded;
+        @apply bg-orange700 font-medium text-white text-sm rounded;
     }
 
     .btn-outline {
-        @apply text-orange-700 border-2 border-orange-700 text-sm rounded font-medium;
+        @apply text-orange700 border-2 border-orange700 text-sm rounded font-medium;
     }
 }
 
