@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Lato, Poppins } from 'next/font/google';
+import { Montserrat, Lato, Nunito, Poppins } from 'next/font/google';
 
 import './globals.css';
 import Navbar from '@/components/ui/Navbar';
@@ -17,6 +17,19 @@ const lato = Lato({
     subsets: ['latin'],
     display: 'swap',
     variable: '--font-lato',
+)}
+
+const nunito = Nunito({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-nunito',
+});
+
+const montserrat = Montserrat({
+    weight: ['300', '500'],
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-montserrat',
 });
 
 export const metadata: Metadata = {
@@ -32,9 +45,11 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body
-                className={`${poppins.variable} ${lato.variable} font-poppins`}
+                className={`${poppins.variable} ${lato.variable} ${nunito.variable} ${montserrat.variable} font-poppins`}
             >
-                {children}
+                <main className='max-w-[1440px] mx-auto overflow-hidden'>
+                    {children}
+                </main>
 
                 <Footer />
             </body>
