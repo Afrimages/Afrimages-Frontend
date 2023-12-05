@@ -16,8 +16,8 @@ export default function Hero() {
 
   return (
     <section
-      className='w-full h-[100vh] bg-amber-200 bg-cover bg-center bg-no-repeat flex flex-col gap-5 items-center justify-center text-center px-xPadding'
-      style={{ backgroundImage: `url(./banner.png)` }}
+      className='w-full h-[100vh] bg-cover bg-center bg-no-repeat flex flex-col gap-5 items-center justify-center text-center px-xPadding'
+      style={{ background: ` linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(./banner.png) no-repeat`, backgroundSize: "cover" }}
     >
       {/* <img src="./banner.png" alt="" className='w-full h-full'/> */}
       <h1 className='text-[2.5em] md:text-[1.8em] font-[800] text-white'>

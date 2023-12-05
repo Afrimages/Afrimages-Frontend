@@ -1,8 +1,42 @@
 import Image from 'next/image'
 import React from 'react'
 import { RiAddLine, RiHeart2Line, RiLockUnlockFill, RiLockUnlockLine, RiShareLine } from 'react-icons/ri'
+import H_ImagesContainer from './H_ImagesContainer'
 
 const ImagePage = () => {
+  const images = [
+    {
+        imageUrl: "https://webunwto.s3.eu-west-1.amazonaws.com/2019-10/why-wildlife.jpg",
+        id: "sin89enewe",
+        title: "Boys Playing",
+        creator: {
+            profilePicture: "/./logo.png",
+            _id: "wwi929212h",
+            fullName: "Emmy Ogunmepon"
+        }
+    },
+    {
+        imageUrl: "/./pp.png",
+        id: "sin89enewe",
+        title: "Boys Playing",
+        creator: {
+            profilePicture: "/./logo.png",
+            _id: "wwi929212h",
+            fullName: "Emmy Ogunmepon"
+        }
+    },
+    {
+        imageUrl: "/./banner.png",
+        id: "sin89enewe",
+        title: "Boys Playing",
+        creator: {
+            profilePicture: "/./logo.png",
+            _id: "wwi929212h",
+            fullName: "Emmy Ogunmepon"
+        }
+    }
+]
+
   return (
     <div className='px-xPadding mt-24 min-h-[70vh]' >
         <div className="profile_container flex justify-between">
@@ -47,15 +81,15 @@ const ImagePage = () => {
 
         </div>
 
-        <div className='py-4 flex justify-between items-center'>
-          <div className="flex gap-6">
+        <div className='py-4 flex sm:flex-col sm:justify-between sm:gap-6 sm:items-start justify-between items-center'>
+          <div className="flex gap-6 sm:flex-col sm:gap-3">
               <p className='text-[0.8em]'>Views <span className='text-[1em] font-semibold'>1246</span></p>
               <p className='text-[0.8em]'>Downloads <span className='text-[1em] font-semibold'>1246</span></p>
               <p className='text-[0.8em]'>Shared <span className='text-[1em] font-semibold'>1246</span></p>
               <p className='text-[0.8em]'>Published on 10- July-2020 </p>
           </div>
 
-          <div className='flex items-center gap-3'>
+          <div className='flex sm:flex-col sm:items-start items-center gap-3'>
             <div className="flex items-center gap-1">
             <RiLockUnlockLine size="20" className="text-green800" />
             <p className="text-green800">Free</p>
@@ -66,6 +100,12 @@ const ImagePage = () => {
             </div>
 
           </div>
+        </div>
+
+        <div>
+          <h2 className='font-bold text-[1.5em]'>Similar Images</h2>
+
+          <H_ImagesContainer images={images}/>
         </div>
         
     </div>

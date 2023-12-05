@@ -2,21 +2,24 @@
 import React, { useState } from 'react'
 import { ImageInterface } from '../Interfaces/ImageInterface'
 import { RiAddLine, RiHeart2Fill, RiHeart2Line } from 'react-icons/ri'
+import Image from 'next/image'
 
 
 const ImageContent = (content: ImageInterface) => {
 
   return (
-    <div className='w-full relative top-0 left-0 -z-0 main-image'
+
+    <a href={`/images/2`}>
+      <div className='w-full relative top-0 left-0 -z-0 main-image'
     >
         {/* <div className="overlay" /> */}
-        <img src={content.imageUrl} alt={content.title}/>
+        <Image width={100} height={100} src={content.imageUrl} alt={content.title} className='w-full h-full' unoptimized unselectable='on'/>
         {/* <div className="overlay-rev" /> */}
 
       <div className='image-options'>
        <div className="full-overlay" />
           <div className='flex absolute top-1 left-3 items-center gap-2 z-20'>
-            <img src="./pp.png" alt="" className='w-[50px] h-[50px] object-cover rounded-full'/>
+            <Image unoptimized unselectable='on' width={50} height={50} src="/./pp.png" alt="" className='w-[50px] h-[50px] object-cover rounded-full'/>
 
               <div className='flex flex-col text-white leading-tight'>
                 <p className='font-bold'>Dammy</p>
@@ -46,6 +49,8 @@ const ImageContent = (content: ImageInterface) => {
         
         
     </div>
+    </a>
+    
   )
 }
 
