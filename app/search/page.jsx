@@ -4,11 +4,13 @@ import Navbar from '@/components/ui/Navbar';
 import SearchResult from '@/components/ui/SearchResult';
 import Footer from '@/components/ui/Footer';
 
-const page = () => {
+const page = (params) => {
+    const {query} = params.searchParams
+
   return (
     <div>
         <Navbar />
-        <SearchResult />
+        <SearchResult query={query}/>
         <Footer />
     </div>
   )

@@ -4,8 +4,7 @@ import React, { useState } from 'react'
 import { RiCollageFill, RiImage2Fill, RiVideoFill } from 'react-icons/ri'
 import H_ImagesContainer from './H_ImagesContainer'
 
-const SearchResult = () => {
-    const search = "Food"
+const SearchResult = ({query}: any) => {
     const [active, setActive] = useState(0)
 
     const options = [
@@ -60,9 +59,9 @@ const SearchResult = () => {
     ]
   return (
     <div className='mt-24 px-xPadding min-h-[70vh]'>
-        <p className='text-[1.2em] text-gray-500'>Results for <span className='font-bold text-black'>{search}</span> </p>
+        <p className='text-[1.2em] text-gray-500'>Results for <span className='font-bold text-black'>{query}</span> </p>
 
-        <div className="more-options flex items-center justify-center my-3 gap-10">
+        <div className="more-options flex items-center justify-center my-3 gap-10 md:gap-0 md:justify-between">
             {
                 options.map((option, i)=> {
                     return (
