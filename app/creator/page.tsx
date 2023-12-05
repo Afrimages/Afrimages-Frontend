@@ -8,6 +8,7 @@ import whyCollageImg1 from '@/public/images/creator/creator-why-collage-1.png';
 import whyCollageImg2 from '@/public/images/creator/creator-why-collage-2.png';
 import whyCollageImg3 from '@/public/images/creator/creator-why-collage-3.png';
 import whyCollageImg4 from '@/public/images/creator/creator-why-collage-4.png';
+import ctaCollageImg from '@/public/images/creator/creator-cta-colllage.png';
 
 import heartOutlineIcon from '@/public/svg/heart-outline.svg';
 import atomIcon from '@/public/svg/atom.svg';
@@ -22,13 +23,13 @@ export default function Creator() {
             {/* Hero Section */}
             <section>
                 <div className='text-center'>
-                    <h1 className='font-nunito text-[40px] font-bold leading-[54px]'>
+                    <h1 className='font-nunito text-[40px] font-bold leading-[80px]'>
                         Showcase your{' '}
                         <span className='text-green400 border-4 border-green400 rounded-full py-2 px-3.5'>
                             Creativity
                         </span>{' '}
                         <br />{' '}
-                        <span className='inline-block align-middle w-[200px] h-[70px] bg-orange-400'></span>
+                        <span className='inline-block align-middle w-[200px] h-[70px] rounded-full bg-orange-300 bg-span-img mr-3'></span>
                         On Afrimages
                     </h1>
 
@@ -272,7 +273,23 @@ export default function Creator() {
             </section>
 
             {/* CTA (Call to Action) Section*/}
-            <section></section>
+            <section className='bg-offWhite flex items-center justify-center gap-20'>
+                <div className='leading-6 gradient-collage rounded-[10px] px-8 pb-8 pt-16'>
+                    <h1 className='font-medium text-xl max-w-[388px]'>
+                        We welcome you to a world of creativity and exposure{' '}
+                    </h1>
+
+                    <p className='text-sm mt-2 mb-9'>
+                        Trust us with your creativity and explore a new world{' '}
+                    </p>
+
+                    <button className='btn-main py-2.5 px-6'>
+                        Become a contributor
+                    </button>
+                </div>
+
+                <Image src={ctaCollageImg} width={500} height={365} alt='' />
+            </section>
         </div>
     );
 }

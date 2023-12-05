@@ -40,6 +40,12 @@
 /*  ------------------------------------------------
     Custom Styling for Creator Page at app/creator
     ------------------------------------------------   */
+.bg-span-img {
+    background-image: url('../public/images/creator/creator-hero-span-img.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .gradient-green {
     background: linear-gradient(
