@@ -11,8 +11,21 @@ const config: Config = {
             fontFamily: {
                 poppins: ['var(--font-poppins)'],
                 lato: ['var(--font-lato)'],
+                nunito: ['var(--font-nunito)'],
+                montserrat: ['var(--font-montserrat)'],
+            },
+            screens: {
+                sm: { max: '600px' },
+                sm1: { max: '768px' },
+                md: { max: '900px' },
+                md1: { max: '850px' },
+                lg: { max: '4070px' },
+                ls: { max: '1370px' },
+                xl: { max: '1250px' },
+                lf: { max: '1150px' },
             },
             colors: {
+                green400: '#62B66F',
                 green500: '#A9DCB3',
                 green700: '#53B968',
                 green800: '#459A56',
@@ -30,6 +43,7 @@ const config: Config = {
                 grey900: '#292421',
 
                 success: '#0E8A1A',
+                offWhite: '#F9F9F9',
             },
             spacing: {
                 xPadding: '5.2%',

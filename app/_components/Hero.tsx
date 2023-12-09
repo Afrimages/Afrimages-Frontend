@@ -1,25 +1,47 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
 import { RiSearch2Line } from 'react-icons/ri';
 
 export default function Hero() {
+
+  const [search, setSearch] = useState()
+
+  const handleSearch = (e: any)=>{
+    setSearch(e.target.value)
+  }
+
+  // const submit = ()=>{
+  //   window.location.href = `/`
+  // }
+
   return (
     <section
-      className='w-full h-[100vh] bg-amber-200 bg-cover bg-center bg-no-repeat flex flex-col gap-5 items-center justify-center text-center'
-      style={{ backgroundImage: `url(./banner.png)` }}
+      className='w-full h-[100vh] bg-cover bg-center bg-no-repeat flex flex-col gap-5 items-center justify-center text-center px-xPadding'
+      style={{ background: ` linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(./banner.png) no-repeat`, backgroundSize: "cover" }}
     >
       {/* <img src="./banner.png" alt="" className='w-full h-full'/> */}
-      <h1 className='text-[2.5em] font-[800] text-white'>
+      <h1 className='text-[2.5em] md:text-[1.8em] font-[800] text-white'>
         Immerse Yourself in the World of <span className='text-orange800 outline-orange800'>Stunning Images</span>
       </h1>
 
-      <p className='text-white text-[1em] w-3/5'>
-      Embark on a visual journey with AfrImage's captivating collection, showcasing Africa's diverse landscapes and cultures. Easily bring the unparalleled beauty of the continent into your personal space and share its enchantment globally through high-resolution downloads.
+      <p className='text-white md:w-full md:text-[1em] text-[1em] w-3/5'>
+      
+        Discover AfrImage's diverse collection, showcasing Africa's beauty. Bring it into your space with high-res downloads, sharing globally. Embark on a visual journey effortlessly.
       </p>
 
-      <div className='flex gap-2 items-center bg-white rounded-md w-[40%] p-4'>
-        <RiSearch2Line size={24} />
-        <input type='text' className='outline-none focus:outline-none' placeholder='Search for Images here...'/>
+      <div className='w-[50%] md:w-full flex items-center justify-center'>
+        <div className='flex gap-2 items-center bg-white rounded-l-lg p-4 w-full'>
+        <RiSearch2Line size={22} className="md:text-[1em] text-gray-400"/>
+        <input type='text' className='outline-none focus:outline-none md:w-full' placeholder='Search for Images here...' value={search} onChange={handleSearch}/>
       </div>
+
+      <a href={`/search?query=${search}`}>
+      <button className='bg-green800 text-white px-6 py-4 rounded-r-lg'>
+        Search
+      </button>
+      </a>
+      </div>
+      
     </section>
   );
 }

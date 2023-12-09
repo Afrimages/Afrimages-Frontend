@@ -1,5 +1,6 @@
 'use client';
 
+import H_ImagesContainer from '@/components/ui/H_ImagesContainer';
 import React, { useState } from 'react';
 
 export default function Main() {
@@ -17,24 +18,59 @@ export default function Main() {
     'Culture',
   ];
 
+  const images = [
+    {
+        imageUrl: "./banner.png",
+        id: "sin89enewe",
+        title: "Boys Playing",
+        creator: {
+            profilePicture: "./logo.png",
+            _id: "wwi929212h",
+            fullName: "Emmy Ogunmepon"
+        }
+    },
+    {
+        imageUrl: "./pp.png",
+        id: "sin89enewe",
+        title: "Boys Playing",
+        creator: {
+            profilePicture: "./logo.png",
+            _id: "wwi929212h",
+            fullName: "Emmy Ogunmepon"
+        }
+    },
+    {
+        imageUrl: "./banner.png",
+        id: "sin89enewe",
+        title: "Boys Playing",
+        creator: {
+            profilePicture: "./logo.png",
+            _id: "wwi929212h",
+            fullName: "Emmy Ogunmepon"
+        }
+    }
+]
+
   const [select, setSelect] = useState(0);
 
   return (
-    <section className='py-20 px-xPadding'>
-      <div className='flex justify-between'>
+    <section className='my-20 px-xPadding'>
+      <div className='flex gap-10 items-center overflow-auto justify-between'>
         {categories.map((item, i) => {
           return (
-            <div
+            <p
               key={i}
               className={`'cursor-pointer' ${
                 select === i && 'border-b-orange800 border-b-2'
               }`}
             >
               {item}
-            </div>
+            </p>
           );
         })}
       </div>
+
+      <H_ImagesContainer images={images}/>
     </section>
   );
 }
