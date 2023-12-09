@@ -1,10 +1,10 @@
 "use client"
 
 import React, { useState } from 'react'
-import { RiImage2Fill, RiVideoFill } from 'react-icons/ri'
+import { RiCollageFill, RiImage2Fill, RiVideoFill } from 'react-icons/ri'
+import H_ImagesContainer from './H_ImagesContainer'
 
-const SearchResult = () => {
-    const search = "Food"
+const SearchResult = ({query}: any) => {
     const [active, setActive] = useState(0)
 
     const options = [
@@ -19,16 +19,49 @@ const SearchResult = () => {
             value: "300"
         },
         {
-            title: "Video",
-            icon: <RiVideoFill />,
+            title: "Collection",
+            icon: <RiCollageFill />,
             value: "800"
+        }
+    ]
+
+    const images = [
+        {
+            imageUrl: "./banner.png",
+            id: "sin89enewe",
+            title: "Boys Playing",
+            creator: {
+                profilePicture: "./logo.png",
+                _id: "wwi929212h",
+                fullName: "Emmy Ogunmepon"
+            }
+        },
+        {
+            imageUrl: "./pp.png",
+            id: "sin89enewe",
+            title: "Boys Playing",
+            creator: {
+                profilePicture: "./logo.png",
+                _id: "wwi929212h",
+                fullName: "Emmy Ogunmepon"
+            }
+        },
+        {
+            imageUrl: "./banner.png",
+            id: "sin89enewe",
+            title: "Boys Playing",
+            creator: {
+                profilePicture: "./logo.png",
+                _id: "wwi929212h",
+                fullName: "Emmy Ogunmepon"
+            }
         }
     ]
   return (
     <div className='mt-24 px-xPadding min-h-[70vh]'>
-        <p className='text-[1.2em] text-gray-500'>Results for <span className='font-bold text-black'>{search}</span> </p>
+        <p className='text-[1.2em] text-gray-500'>Results for <span className='font-bold text-black'>{query}</span> </p>
 
-        <div className="more-options flex items-center justify-center my-3 gap-10">
+        <div className="more-options flex items-center justify-center my-3 gap-10 md:gap-0 md:justify-between">
             {
                 options.map((option, i)=> {
                     return (
@@ -44,7 +77,7 @@ const SearchResult = () => {
             }
         </div>
 
-
+        <H_ImagesContainer images={images}/>
     </div>
   )
 }

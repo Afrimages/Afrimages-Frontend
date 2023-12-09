@@ -63,7 +63,7 @@ const Footer = () => {
     },
   ];
   return (
-    <div className='bg-green1100 py-10 px-xPadding '>
+    <div className='bg-green1100 py-10 px-xPadding text-[0.8em]'>
       <div className='grid-4 text-white'>
         {footerContent.map((item, i) => {
           return (
