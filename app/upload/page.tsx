@@ -17,6 +17,7 @@ import collectionIcon from '@/public/svg/collection.svg';
 import uploadIcon from '@/public/svg/upload.svg';
 import eyeIcon from '@/public/svg/eye.svg';
 import lockIcon from '@/public/svg/lock.svg';
+import Navbar from '@/components/ui/Navbar';
 
 export default function Upload() {
     const [active, setActive] = useState(false);
@@ -56,7 +57,9 @@ export default function Upload() {
     };
 
     return (
-        <main className='px-6 bg-grey100 rounded-[10px] font-lato lg:grid lg:grid-cols-[70%_30%] lg:gap-6 lg:px-[100px] lg:py-8'>
+        <>
+        <Navbar />
+        <main className='px-6 bg-grey100 rounded-[10px] font-lato lg:grid lg:grid-cols-[70%_30%] lg:gap-6 lg:px-[100px] lg:py-8 mt-16'>
             {!active ? (
                 <div className='text-center flex flex-col items-center justify-center gap-7 bg-white min-h-[90dvh] '>
                     <div>
@@ -226,6 +229,7 @@ export default function Upload() {
                 </div>
             </form>
         </main>
+        </>
     );
 }
 

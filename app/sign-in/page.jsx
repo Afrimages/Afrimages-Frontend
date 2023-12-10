@@ -5,7 +5,7 @@ import { RiGoogleFill } from 'react-icons/ri'
 const page = () => {
   return (
     <div style={{background: `url(./auth-bg.png)`}} className=' w-full min-h-[100vh] flex items-center justify-center'>
-        <div className="container px-24 md:px-xPadding pt-5 pb-16 shadow-2xl md:shadow-none w-2/5 h-[100vh] bg-white md:bg-transparent rounded-3xl flex  flex-col md:w-full md:h-full">
+        <div className="container px-24 md:px-xPadding pt-5 pb-16 shadow-2xl md:shadow-none w-2/5 min-h-[80vh] bg-white md:bg-transparent rounded-3xl flex  flex-col md:w-full md:h-full">
 
             <div className='flex flex-col items-center'>
             <a href="/" className='w-full flex justify-center'>

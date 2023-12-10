@@ -16,10 +16,13 @@ import feedbackIcon from '@/public/svg/feedback.svg';
 import uploadIcon from '@/public/svg/upload-linear.svg';
 import tagsIcon from '@/public/svg/tags.svg';
 import monitorIcon from '@/public/svg/monitor.svg';
+import Navbar from '@/components/ui/Navbar';
 
 export default function Creator() {
     return (
-        <div className='font-lato py-14'>
+       <>
+       <Navbar />
+         <div className='font-lato py-32'>
             {/* Hero Section */}
             <section>
                 <div className='text-center'>
@@ -33,14 +36,16 @@ export default function Creator() {
                         On Afrimages
                     </h1>
 
-                    <p className='font-bold text-2xl leading-7 my-11 text-grey600'>
+                    <div className='flex flex-col gap-3 items-center justify-center my-5'>
+                    <p className='font-bold text-xl leading-7 text-grey600'>
                         Join a vibrant community, gain exposure and set the
                         stage for future earnings.
                     </p>
 
-                    <button className='btn-main px-10 py-2'>
+                    <button className='btn-main px-10 py-4 w-fit'>
                         Become a verified contributor
                     </button>
+                    </div>
                 </div>
 
                 {/* Marquee */}
@@ -62,7 +67,7 @@ export default function Creator() {
 
                 {/* Banner */}
 
-                <div className='border-[0.5px] border-black py-5 text-center text-white font-medium text-2xl gradient-green relative mt-36 overlay-top space-x-2'>
+                <div className=' py-5 text-center text-white font-medium text-2xl gradient-green relative mt-36 overlay-top space-x-2'>
                     <span className='text-4xl'>🎉</span>
                     Welcome to our creators community we are glad to have you
                     <span className='text-4xl'>🔥</span>
@@ -74,17 +79,17 @@ export default function Creator() {
                 <div className='text-center mb-12'>
                     <h1 className='text-[2rem] font-bold leading-[3rem]'>
                         Your talent deserves recognition and we are here to
-                        elevate your <span className='text-orange700'>art</span>
+                        elevate your <span className='text-orange700'>Art.</span>
                     </h1>
 
-                    <p className='max-w-[45.8125rem] mx-auto text-xl font-semibold'>
+                    <p className='w-3/5 mx-auto text-lg font-normal'>
                         Create all forms of creativity from photos, vectors,
                         icons, mockups we embrace all because we understand that
                         there is no limits to your creativity.
                     </p>
                 </div>
 
-                <div className='flex justify-center gap-6'>
+                <div className='grid grid-cols-2 px-xPadding justify-center gap-6 items-center'>
                     <div className='rounded-[10px] py-12 px-11 gradient-collage flex flex-col gap-7 items-center'>
                         <Image
                             src={whyCollageImg1}
@@ -117,11 +122,10 @@ export default function Creator() {
                         </div>
                     </div>
 
-                    <div className='max-w-[22.3125rem]'>
-                        <p className='text-lg mb-8'>
+                    <div className='px-[10%] flex flex-col gap-3 items-center justify-center'>
+                        <p className='text-lg text-center'>
                             Upload your photos, designs, illustrations, vectors
-                            on{' '}
-                            <a href='#' className='font-semibold text-green700'>
+                            on <a href='#' className='font-semibold text-green700'>
                                 afrimages
                             </a>
                         </p>
@@ -134,10 +138,9 @@ export default function Creator() {
             </section>
 
             {/* Why Section */}
-            <section>
-                <h1 className='text-center font-medium text-[2rem]'>
-                    Why you should become a contributor on{' '}
-                    <span className='text-green1000 font-bold'>afrimages</span>
+            <section className='my-24'>
+                <h1 className='text-center text-[2rem] font-bold'>
+                    Why you should become a contributor on <span className='text-green800 font-bold'>afrimages</span>
                 </h1>
 
                 <div className='flex items-center justify-center gap-8 mt-9 mb-6'>
@@ -157,7 +160,7 @@ export default function Creator() {
                     ].map((item, index) => (
                         <div
                             key={item.text.slice(0, 10)}
-                            className={`border border-black rounded-[10px] w-[330px] h-[210px] py-3.5 px-7 ${
+                            className={`border border-gray-200 shadow-sm rounded-[10px] w-[330px] h-[210px] py-3.5 px-7 ${
                                 index === 0 || index === 2 ? 'bg-offWhite' : ''
                             }`}
                         >
@@ -183,18 +186,21 @@ export default function Creator() {
                     ))}
                 </div>
 
-                <div className='text-center'>
-                    <button className='btn-main py-2.5 px-6 mt-6 mb-12'>
-                        Become a contributor
+                {/* <div className='text-center'>
+                <button className='btn-main px-10 py-4 w-fit'>
+                        Become a verified contributor
                     </button>
-                </div>
+                </div> */}
 
-                <h1 className='font-medium text-[32px] leading-[38px] text-center'>
+            </section>
+
+            <section className='my-28 flex flex-col items-center justify-center'>
+            <h1 className='font-bold text-[2em] leading-[38px] text-center w-3/5 '>
                     Creative tools we provided to make your uploading easy and
-                    seamless{' '}
+                    seamless
                 </h1>
 
-                <div className='flex items-center justify-center gap-9 bg-offWhite pt-5 pb-12 mt-8'>
+                <div className='flex items-center justify-between gap-9 mt-8'>
                     {[
                         {
                             heading: 'Batch uploading',
@@ -215,9 +221,9 @@ export default function Creator() {
                     ].map((item) => (
                         <div
                             key={item.heading}
-                            className='font-montserrat text-center'
+                            className='text-center bg-white shadow-md px-5 py-16 rounded-md w-1/3 border border-gray-100'
                         >
-                            <div className='rounded-full w-8 h-8 flex items-center justify-center bg-[#EBE5D6] mx-auto'>
+                            <div className='rounded-full w-8 h-8 flex items-center justify-center bg-white shadow-md mx-auto'>
                                 <Image
                                     src={item.icon}
                                     alt=''
@@ -250,7 +256,7 @@ export default function Creator() {
                         type='text'
                         required
                         placeholder='Type your questions'
-                        className='bg-offWhite px-6 py-7 w-full rounded-lg placeholder:text-[#545454] font-light'
+                        className='bg-offWhite px-6 py-7 w-full rounded-lg placeholder:text-[#545454] font-light focus:outline-none'
                     />
 
                     <div className='px-6 py-3.5 w-full flex items-center justify-between border-t border-black'>
@@ -264,7 +270,7 @@ export default function Creator() {
 
                         <button
                             type='submit'
-                            className='py-2.5 px-10 border border-black font-medium rounded text-sm'
+                            className='py-2.5 px-10 border border-black font-medium rounded text-sm hover:bg-orange800 hover:text-white transition-all hover:border-orange800'
                         >
                             Submit
                         </button>
@@ -273,23 +279,24 @@ export default function Creator() {
             </section>
 
             {/* CTA (Call to Action) Section*/}
-            <section className='bg-offWhite flex items-center justify-center gap-20'>
-                <div className='leading-6 gradient-collage rounded-[10px] px-8 pb-8 pt-16'>
-                    <h1 className='font-medium text-xl max-w-[388px]'>
-                        We welcome you to a world of creativity and exposure{' '}
+            <section className='bg-offWhite flex items-center justify-center gap-20 py-24 '>
+                <div className='leading-6 gradient-collage rounded-[10px] flex flex-col gap-1 py-12 px-8 '>
+                    <h1 className='font-bold text-xl max-w-[388px]'>
+                        We welcome you to a world of creativity and exposure
                     </h1>
 
-                    <p className='text-sm mt-2 mb-9'>
-                        Trust us with your creativity and explore a new world{' '}
+                    <p className='text-sm'>
+                        Trust us with your creativity and explore a new world
                     </p>
 
-                    <button className='btn-main py-2.5 px-6'>
-                        Become a contributor
+                    <button className='btn-main px-5 py-4 w-fit'>
+                        Become a verified contributor
                     </button>
                 </div>
 
                 <Image src={ctaCollageImg} width={500} height={365} alt='' />
             </section>
         </div>
+       </>
     );
 }

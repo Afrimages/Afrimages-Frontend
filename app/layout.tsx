@@ -16,8 +16,7 @@ const lato = Lato({
     weight: ['400', '700', '900'],
     subsets: ['latin'],
     display: 'swap',
-    variable: '--font-lato',
-)}
+    variable: '--font-lato',})
 
 const nunito = Nunito({
     subsets: ['latin'],
@@ -50,8 +49,6 @@ export default function RootLayout({
                 <main className='max-w-[1440px] mx-auto overflow-hidden'>
                     {children}
                 </main>
-
-                <Footer />
             </body>
         </html>
     );
