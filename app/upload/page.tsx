@@ -59,9 +59,10 @@ export default function Upload() {
     return (
         <>
         <Navbar />
-        <main className='px-6 bg-grey100 rounded-[10px] font-lato lg:grid lg:grid-cols-[70%_30%] lg:gap-6 lg:px-[100px] lg:py-8 mt-16'>
+        <main className='px-6 bg-grey100 rounded-[10px] font-lato lg:flex lg:justify-between lg:grid-cols-[60%_38%] lg:gap-6 lg:px-[100px] lg:py-8 mt-16'>
             {!active ? (
-                <div className='text-center flex flex-col items-center justify-center gap-7 bg-white min-h-[90dvh] '>
+                <div>
+                    <div className='text-center flex flex-col items-center justify-center gap-7 bg-white h-[90vh] fixed w-[50%] '>
                     <div>
                         <h1 className='font-bold text-[1.75rem] leading-[2.5rem]'>
                             Upload Content
@@ -118,6 +119,7 @@ export default function Upload() {
                                 </p>
                             </div>
                         ))}
+                    </div>
                     </div>
                 </div>
             ) : null}
@@ -194,7 +196,7 @@ export default function Upload() {
                 ))}
 
                 {/* Custom Checkbox comp */}
-                <div className='flex items-center justify-between text-lg font-medium leading-7 py-1 gap-4'>
+                <div className='flex items-center justify-between leading-7 py-1 gap-4'>
                     <label htmlFor='userAgree' className='text-black'>
                         I Agree to all{' '}
                         <a href='' className='text-green700'>

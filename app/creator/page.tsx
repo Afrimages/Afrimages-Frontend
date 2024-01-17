@@ -105,7 +105,7 @@ export default function Creator() {
                             height={99}
                         />
 
-                        <div className='flex items-center gap-5'>
+                        <div className='grid grid-cols-2 items-center gap-5'>
                             <Image
                                 src={whyCollageImg3}
                                 alt=''

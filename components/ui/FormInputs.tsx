@@ -18,7 +18,7 @@ type InputSelectProps = {
 export function InputText({ label, name, onChange }: InputTextProps) {
     return (
         <div>
-            <div className='flex items-center justify-between text-lg font-medium leading-7'>
+            <div className='flex items-center justify-between leading-7'>
                 <label htmlFor={name}>{label}</label>
 
                 <button>
@@ -31,7 +31,7 @@ export function InputText({ label, name, onChange }: InputTextProps) {
                 name={name}
                 id={name}
                 onChange={(e) => onChange(name, e.target.value)}
-                className='border-2 border-grey500 rounded-[10px] mt-1.5 px-3 py-3 w-full font-bold text-grey600 bg-transparent'
+                className='border-2 border-grey500 rounded-lg mt-1.5 px-3 py-3 w-full  text-grey600 bg-transparent'
             />
         </div>
     );
@@ -45,7 +45,7 @@ export function InputSelect({
 }: InputSelectProps) {
     return (
         <div>
-            <div className='flex items-center justify-between text-lg font-medium leading-7'>
+            <div className='flex items-center justify-between leading-7'>
                 <label htmlFor={name}>{label}</label>
 
                 <button>
@@ -57,7 +57,7 @@ export function InputSelect({
                 name={name}
                 id={name}
                 onChange={(e) => onChange(name, e.target.value)}
-                className='border-2 border-grey500 rounded-[10px] mt-1.5 px-3 py-3 w-full font-bold text-grey600 appearance-none bg-transparent'
+                className='border-2 border-grey500 rounded-lg mt-1.5 px-3 py-3 w-full text-grey600 appearance-none bg-transparent'
             >
                 {options.map((option) => (
                     <option key={option} value={option}>
@@ -71,7 +71,7 @@ export function InputSelect({
 
 export function InputCheckbox({ label, name, onChange }: InputTextProps) {
     return (
-        <div className='flex items-center justify-between text-lg font-medium leading-7 py-1 gap-4'>
+        <div className='flex items-center justify-between leading-7 py-1 gap-4'>
             <label htmlFor={name} className='text-black'>
                 {label}
             </label>

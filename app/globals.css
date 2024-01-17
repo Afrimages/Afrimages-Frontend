@@ -5,7 +5,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-    font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+    /* font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: var(--font-poppins);
+}
+
+p{
+    font-size: 14px;
+}
+
+label{
+    font-size: 14px;
 }
 
 .grid-4 {

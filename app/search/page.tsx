@@ -4,7 +4,7 @@ import Navbar from '@/components/ui/Navbar';
 import SearchResult from '@/components/ui/SearchResult';
 import Footer from '@/components/ui/Footer';
 
-const page = (params) => {
+const page = (params: any) => {
     const {query} = params.searchParams
 
   return (

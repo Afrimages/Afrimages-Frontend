@@ -21,7 +21,7 @@ export default function Hero() {
     >
       {/* <img src="./banner.png" alt="" className='w-full h-full'/> */}
       <h1 className='text-[2.5em] md:text-[1.8em] font-[800] text-white'>
-        Immerse Yourself in the World of <span className='text-orange800 outline-orange800'>Stunning Images</span>
+      Discover, Download, and Share the Finest Images from Afrimages
       </h1>
 
       <p className='text-white md:w-full md:text-[1em] text-[1em] w-3/5'>
