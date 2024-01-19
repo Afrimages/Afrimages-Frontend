@@ -70,7 +70,7 @@ const SearchResult = ({query}: any) => {
                                 <p>{option.icon}</p>
                                 <p>{option.title}</p>
                             {/* </div> */}
-                            <p>{option.value && `${option.value}k`}</p>
+                            <p>{option.value && `(${option.value}k)`}</p>
                         </div>
                     )
                 })
