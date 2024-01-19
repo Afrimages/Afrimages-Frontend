@@ -137,3 +137,11 @@ label{
 .gradient-collage {
     background: rgba(221, 142, 102, .5)
 }
+
+.container{
+    @apply px-xPadding
+}
+
+form input{
+    @apply border-2 p-3 rounded-md text-[14px] focus:outline-none
+}
