@@ -48,6 +48,12 @@ const config: Config = {
             spacing: {
                 xPadding: '5.2%',
             },
+            fontSize:{
+                sm:"14px",
+                md:"24px",
+                mdl: "36px",
+                lg: "48px",
+            }
         },
     },
     plugins: [

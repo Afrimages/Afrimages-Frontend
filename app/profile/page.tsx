@@ -39,7 +39,7 @@ const page = () => {
             <div className='flex gap-5 justify-between items-center'>
             <Image width={0} height={0} src={"/./bb.jpeg"} alt='profile picture' className='w-[170px] h-[170px] rounded-full border-[5px] border-white' unoptimized/>
               <div>
-                <h2>Dammy</h2>
+                <h2 className='font-[600] text-md'>Dammy</h2>
                 <p>@dammy410</p>
               </div>
             </div>
@@ -100,7 +100,7 @@ const page = () => {
                       return(
                         <div className='flex justify-between items-center' key={i}>
                           <p>{item.title}</p>
-                          <p>{item.value}</p>
+                          <p className='font-[600]'>{item.value}</p>
                         </div>
                       )
                     })

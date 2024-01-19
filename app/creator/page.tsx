@@ -17,18 +17,19 @@ import uploadIcon from '@/public/svg/upload-linear.svg';
 import tagsIcon from '@/public/svg/tags.svg';
 import monitorIcon from '@/public/svg/monitor.svg';
 import Navbar from '@/components/ui/Navbar';
+import Footer from '@/components/ui/Footer';
 
 export default function Creator() {
     return (
        <>
        <Navbar />
-         <div className='font-lato py-32'>
+         <div className=' py-32'>
             {/* Hero Section */}
             <section>
                 <div className='text-center'>
-                    <h1 className='font-nunito text-[40px] font-bold leading-[80px]'>
+                    <h1 className='text-lg font-bold leading-[80px]'>
                         Showcase your{' '}
-                        <span className='text-green400 border-4 border-green400 rounded-full py-2 px-3.5'>
+                        <span className='text-green400 border-4 border-green400 rounded-full py-1 px-3.5'>
                             Creativity
                         </span>{' '}
                         <br />{' '}
@@ -37,12 +38,12 @@ export default function Creator() {
                     </h1>
 
                     <div className='flex flex-col gap-3 items-center justify-center my-5'>
-                    <p className='font-bold text-xl leading-7 text-grey600'>
+                    <p className=' text-md leading-7 text-grey600'>
                         Join a vibrant community, gain exposure and set the
                         stage for future earnings.
                     </p>
 
-                    <button className='btn-main px-10 py-4 w-fit'>
+                    <button className='btn-main px-6 py-4 w-fit rounded-full'>
                         Become a verified contributor
                     </button>
                     </div>
@@ -50,7 +51,7 @@ export default function Creator() {
 
                 {/* Marquee */}
 
-                <div className='flex items-center gap-3 mt-14 overflow-hidden pl-[100px]'>
+                <div className='flex items-center gap-3 my-14 overflow-hidden pl-[100px]'>
                     {[heroImg1, heroImg2, heroImg3, heroImg4].map(
                         (image, index) => (
                             <Image
@@ -67,22 +68,22 @@ export default function Creator() {
 
                 {/* Banner */}
 
-                <div className=' py-5 text-center text-white font-medium text-2xl gradient-green relative mt-36 overlay-top space-x-2'>
+                {/* <div className=' py-5 text-center text-white font-medium text-2xl gradient-green relative mt-36 overlay-top space-x-2'>
                     <span className='text-4xl'>🎉</span>
                     Welcome to our creators community we are glad to have you
                     <span className='text-4xl'>🔥</span>
-                </div>
+                </div> */}
             </section>
 
             {/* Info Section */}
-            <section className='bg-offWhite py-20 pb-10'>
-                <div className='text-center mb-12'>
-                    <h1 className='text-[2rem] font-bold leading-[3rem]'>
+            <section className='bg-offWhite py-20 flex flex-col gap-20'>
+                <div className='text-center'>
+                    <h1 className='text-mdl font-medium w-4/5 m-auto leading-[3rem]'>
                         Your talent deserves recognition and we are here to
                         elevate your <span className='text-orange700'>Art.</span>
                     </h1>
 
-                    <p className='w-3/5 mx-auto text-lg font-normal'>
+                    <p className='w-3/5 mx-auto text-md font-normal'>
                         Create all forms of creativity from photos, vectors,
                         icons, mockups we embrace all because we understand that
                         there is no limits to your creativity.
@@ -123,7 +124,7 @@ export default function Creator() {
                     </div>
 
                     <div className='px-[10%] flex flex-col gap-3 items-center justify-center'>
-                        <p className='text-lg text-center'>
+                        <p className='text-mdl text-center'>
                             Upload your photos, designs, illustrations, vectors
                             on <a href='#' className='font-semibold text-green700'>
                                 afrimages
@@ -194,7 +195,7 @@ export default function Creator() {
 
             </section>
 
-            <section className='my-28 flex flex-col items-center justify-center'>
+            <section className='my-16 flex flex-col items-center justify-center'>
             <h1 className='font-bold text-[2em] leading-[38px] text-center w-3/5 '>
                     Creative tools we provided to make your uploading easy and
                     seamless
@@ -245,7 +246,7 @@ export default function Creator() {
             </section>
 
             {/* Question Section */}
-            <section className='py-24'>
+            <section className='my-16'>
                 <h1 className='text-2xl font-medium text-center'>
                     Do you have questions for us ? we are available to answer
                     your questions{' '}
@@ -256,16 +257,16 @@ export default function Creator() {
                         type='text'
                         required
                         placeholder='Type your questions'
-                        className='bg-offWhite px-6 py-7 w-full rounded-lg placeholder:text-[#545454] font-light focus:outline-none'
+                        className='bg-offWhite px-6 py-7 w-full  placeholder:text-[#545454] font-light focus:outline-none'
                     />
 
-                    <div className='px-6 py-3.5 w-full flex items-center justify-between border-t border-black'>
+                    <div className='px-6 py-3.5 w-full flex items-center gap-3 justify-between border-t border-black'>
                         <input
                             type='email'
                             maxLength={40}
                             placeholder='Your email address'
                             required
-                            className='flex-1 placeholder:text-[#545454] font-light'
+                            className='flex-1 placeholder:text-[#545454] font-light border-none border-b-2 border-gray-500'
                         />
 
                         <button
@@ -297,6 +298,8 @@ export default function Creator() {
                 <Image src={ctaCollageImg} width={500} height={365} alt='' />
             </section>
         </div>
+
+        <Footer />
        </>
     );
 }

@@ -72,7 +72,7 @@ const Footer = () => {
                 {item.title}
               </h2>
 
-              <div className='py-2'>
+              <div className='py-2 flex flex-col gap-3'>
                 {item.sub.map((sub, j) => {
                   return (
                     <a key={sub.title} href={sub.link} className='block'>
@@ -85,11 +85,11 @@ const Footer = () => {
           );
         })}
 
-        <div>
+        <div className=''>
           <h2 className='text-[1.2em] font-semibold border-b-2 mb-4 border-solid border-orange800 inline'>
             Social Media
           </h2>
-          <div className='py-2 gap-2 flex flex-col'>
+          <div className='py-2 gap-3 flex flex-col'>
             <div className='flex gap-2'>
               <RiFacebookLine className="circle" size={35} />
               <RiTwitterLine className="circle" size={35} />
@@ -107,7 +107,7 @@ const Footer = () => {
 
       <div className='w-full h-[1px] bg-white my-5'></div>
 
-      <p className='text-white'>Afrimages - 2023</p>
+      <p className='text-white'>Afrimages - {new Date().getFullYear()}</p>
     </div>
   );
 };
