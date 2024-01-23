@@ -127,13 +127,13 @@ const page = () => {
 
 
         <div className="container mt-10">
-          <div className="edit grid grid-cols-[30%_60%] md:gap-5 md:grid-cols-none justify-between">
+          <div className="edit grid grid-cols-[30%_60%] md:gap-5 md:grid-cols-none justify-between  md:block">
             <div> 
               <h2 className='text-md font-medium'>Personal Info</h2>
               <p>Upload your photo and personal details</p>
             </div>
 
-            <form action="" className='bg-white p-5 rounded-md flex flex-col gap-5'>
+            <form action="" className='bg-white p-5 rounded-md flex flex-col gap-5 md:w-full md:mt-3'>
               <div className='grid grid-cols-2 md:grid-cols-none gap-5 edit'>
                 <div>
                   <label htmlFor="firstName">First Name</label>
@@ -153,13 +153,13 @@ const page = () => {
             </form>
           </div>
 
-          <div>
+          <div className='mt-5'>
             <div>
-              <h2>Portfolio</h2>
+              <h2 className='text-md font-medium'>Portfolio</h2>
               <p>Share a few snippets of your work.</p>
             </div>
 
-            <div className='bg-white p-5 rounded-md grid grid-cols-2 gap-20'>
+            <div className='bg-white p-5 rounded-md grid md:flex md:flex-col grid-cols-2 gap-20 md:mt-3'>
                 <div className='flex gap-5 flex-col'>
                   {
                     data.map((item, i)=>{
@@ -189,7 +189,7 @@ const page = () => {
                 My Assets
               </div>
 
-              <div className="grid grid-cols-3 gap-5">
+              <div className="grid grid-cols-3 gap-5 md:grid-cols-none">
                 {
                   images3.map((img, i)=>{
                     return(
