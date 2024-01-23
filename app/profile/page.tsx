@@ -1,3 +1,4 @@
+import MyImage from '@/components/ui/MyImage'
 import Navbar from '@/components/ui/Navbar'
 import Image from 'next/image'
 import React from 'react'
@@ -7,7 +8,7 @@ const page = () => {
 
   const data = [
     {
-      title: "Post Views",
+      title: "Downloads",
       value: "3000"
     },
     {
@@ -15,17 +16,82 @@ const page = () => {
       value: "200"
     },
     {
-      title: "Followers",
-      value: "20000"
+      title: "Assets",
+      value: "100"
     },
     {
-      title: "Following",
-      value: "100"
+      title: "Followers",
+      value: "20000"
     }
   ]
 
+  const images3 = [
+    {
+        imageUrl: "/./pp.png",
+        _id: "sin89enewe",
+        title: "Boys Playing",
+        creator: {
+            profilePicture: "./logo.png",
+            _id: "wwi929212h",
+            fullName: "Emmy Ogunmepon"
+        }
+    },
+    {
+        imageUrl: "/./banner.png",
+        _id: "sin89enewe",
+        title: "Boys Playing",
+        creator: {
+            profilePicture: "./logo.png",
+            _id: "wwi929212h",
+            fullName: "Emmy Ogunmepon"
+        }
+    },
+    {
+        imageUrl: "/./bb.jpeg",
+        _id: "sin89enewe",
+        title: "Boys Playing",
+        creator: {
+            profilePicture: "./logo.png",
+            _id: "wwi929212h",
+            fullName: "Emmy Ogunmepon"
+        }
+    },
+    {
+      imageUrl: "/./pp.png",
+      _id: "sin89enewe",
+      title: "Boys Playing",
+      creator: {
+          profilePicture: "./logo.png",
+          _id: "wwi929212h",
+          fullName: "Emmy Ogunmepon"
+      }
+  },
+  {
+      imageUrl: "/./banner.png",
+      _id: "sin89enewe",
+      title: "Boys Playing",
+      creator: {
+          profilePicture: "./logo.png",
+          _id: "wwi929212h",
+          fullName: "Emmy Ogunmepon"
+      }
+  },
+  {
+      imageUrl: "/./bb.jpeg",
+      _id: "sin89enewe",
+      title: "Boys Playing",
+      creator: {
+          profilePicture: "./logo.png",
+          _id: "wwi929212h",
+          fullName: "Emmy Ogunmepon"
+      }
+  }
+]
 
-  // const
+
+  // const tabs = [
+
+  // ]
   return (
     <div className='bg-gray-50'>
         <Navbar />
@@ -37,7 +103,7 @@ const page = () => {
 
           <div className="details flex justify-between items-center px-xPadding -mt-[45px]">
             <div className='flex gap-5 justify-between items-center'>
-            <Image width={0} height={0} src={"/./bb.jpeg"} alt='profile picture' className='w-[170px] h-[170px] rounded-full border-[5px] border-white' unoptimized/>
+            <Image width={0} height={0} src={"/./bb.jpeg"} alt='profile picture' className='w-[170px] h-[170px] rounded-full border-[5px] border-white object-cover' unoptimized/>
               <div>
                 <h2 className='font-[600] text-md'>Dammy</h2>
                 <p>@dammy410</p>
@@ -119,8 +185,18 @@ const page = () => {
 
 
           <div className='mt-20'>
-              <div className='grid grid-cols-3 items-center justify-center text-center'>
-                
+              <div className=''>
+                My Assets
+              </div>
+
+              <div className="grid grid-cols-3 gap-5">
+                {
+                  images3.map((img, i)=>{
+                    return(
+                      <MyImage {...img} />
+                    )
+                  })
+                }
               </div>
           </div>
 
