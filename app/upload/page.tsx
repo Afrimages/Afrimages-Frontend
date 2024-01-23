@@ -18,6 +18,7 @@ import uploadIcon from '@/public/svg/upload.svg';
 import eyeIcon from '@/public/svg/eye.svg';
 import lockIcon from '@/public/svg/lock.svg';
 import Navbar from '@/components/ui/Navbar';
+import { HiPlus, HiX } from 'react-icons/hi';
 
 export default function Upload() {
     const [active, setActive] = useState(false);
@@ -55,6 +56,23 @@ export default function Upload() {
 
         console.log('Form Submitted');
     };
+
+    const [key, setKey] = useState<string>("")
+
+    const handleKey = (e: any)=>{
+        setKey(e.target.value)
+    }
+    const [keywords, setKeywords] = useState<any>([]);
+
+    const handleKeyword = (k: string)=>{
+        setKey('')
+        setKeywords([...keywords, k])
+    }
+
+    const removeKeyword = (k: string)=>{
+        let filtered = keywords.filter((key: string) => k !== k)
+        setKeywords(filtered)
+    }
 
     return (
         <>
@@ -140,7 +158,6 @@ export default function Upload() {
                             label: 'Short details about the image',
                             name: 'userDetails',
                         },
-                        { label: 'Tools Used', name: 'userTools' },
                     ].map((item) => (
                         <InputText
                             key={item.label}
@@ -154,18 +171,27 @@ export default function Upload() {
                         {
                             label: 'Image Categories',
                             name: 'userImgCatog',
-                            options: ['Select a category', 'Food', 'Travel'],
+                            options: ['Select a category', 'Food',
+                            'People',
+                            'Infrastruture',
+                            'Animal',
+                            'Fashion&Beauty',
+                            'Business',
+                            'Health&Fitness',
+                            'Music',
+                            'Nature',
+                            'Culture',],
                         },
                         {
                             label: 'Afrimage Visibility',
                             name: 'userVisibility',
                             options: ['Select an option', 'Everyone', 'Nobody'],
                         },
-                        {
-                            label: 'License',
-                            name: 'userLicense',
-                            options: ['Select an option', 'Free', 'Paid'],
-                        },
+                        // {
+                        //     label: 'License',
+                        //     name: 'userLicense',
+                        //     options: ['Select an option', 'Free', 'Paid'],
+                        // },
                     ].map((item) => (
                         <InputSelect
                             key={item.label}
@@ -194,6 +220,31 @@ export default function Upload() {
                         onChange={handleInputChange}
                     />
                 ))}
+
+                <div>
+                    <p>Search Keywords</p>
+                    <div className='flex gap-2'>
+                    <input type="text" value={key} onChange={handleKey} />
+                    <button className='border px-3 text-md rounded-md bg-orange800 text-white' onClick={()=> handleKeyword(key)}><HiPlus /></button>
+                    </div>
+
+                    <div>
+                        <p>Added Keywords</p>
+
+                        <div className='flex gap-3 flex-wrap'>
+                            {
+                                keywords.map((key: string, i: number)=>{
+                                    return(
+                                        <div className="px-2 py-1 flex gap-1 border items-center border-gray-400 w-fit rounded-md text-sm">
+                                            {key}
+                                            <HiX className="cursor-pointer" onClick={()=> removeKeyword(key)}/>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
 
                 {/* Custom Checkbox comp */}
                 <div className='flex items-center justify-between leading-7 py-1 gap-4'>
