@@ -1,3 +1,4 @@
+import Footer from '@/components/ui/Footer'
 import MyImage from '@/components/ui/MyImage'
 import Navbar from '@/components/ui/Navbar'
 import Image from 'next/image'
@@ -126,7 +127,7 @@ const page = () => {
         </div>
 
 
-        <div className="container mt-10">
+        <div className="container my-10">
           <div className="edit grid grid-cols-[30%_60%] md:gap-5 md:grid-cols-none justify-between  md:block">
             <div> 
               <h2 className='text-md font-medium'>Personal Info</h2>
@@ -202,6 +203,8 @@ const page = () => {
 
 
         </div>
+
+        <Footer />
     </div>
   )
 }
