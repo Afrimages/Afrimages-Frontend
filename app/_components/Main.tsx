@@ -12,7 +12,7 @@ export default function Main() {
     'Animal',
     'Fashion&Beauty',
     'Business',
-    'Health and Fitness',
+    'Health&Fitness',
     'Music',
     'Nature',
     'Culture',
@@ -54,13 +54,13 @@ export default function Main() {
   const [select, setSelect] = useState(0);
 
   return (
-    <section className='my-20 px-xPadding'>
+    <section className='my-10 px-xPadding'>
       <div className='flex gap-10 items-center overflow-auto justify-between'>
         {categories.map((item, i) => {
           return (
             <p
               key={i}
-              className={`'cursor-pointer' ${
+              className={`'cursor-pointer w-fit' ${
                 select === i && 'border-b-orange800 border-b-2'
               }`}
             >

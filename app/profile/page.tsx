@@ -97,20 +97,20 @@ const page = () => {
         <Navbar />
 
         <div className=" mt-[65px]">
-          <div className="cover w-full h-[30vh] ">
+          <div className="cover w-full h-[30vh] md:h-[200px]">
             <Image src="/./banner.png" alt="" width={0} height={0} className='w-full h-full object-cover' unoptimized/>
           </div>
 
-          <div className="details flex justify-between items-center px-xPadding -mt-[45px]">
+          <div className="details flex md:flex-col md:items-start justify-between items-center px-xPadding -mt-[45px] md:-mt-[30px]">
             <div className='flex gap-5 justify-between items-center'>
-            <Image width={0} height={0} src={"/./bb.jpeg"} alt='profile picture' className='w-[170px] h-[170px] rounded-full border-[5px] border-white object-cover' unoptimized/>
+            <Image width={0} height={0} src={"/./bb.jpeg"} alt='profile picture' className='w-[170px] md:w-[150px] md:h-[150px] h-[170px] rounded-full border-[5px] border-white object-cover' unoptimized/>
               <div>
                 <h2 className='font-[600] text-md'>Dammy</h2>
                 <p>@dammy410</p>
               </div>
             </div>
 
-            <div className="flex gap-5 items-center ">
+            <div className="flex gap-5 items-center md:mt-[20px] ">
               <div className='flex items-center gap-2 border-2 border-orange800 text-orange800 py-3 px-5 rounded-md cursor-pointer'>
                 <RiShareFill />
                 <p>Share Profile</p>
@@ -127,14 +127,14 @@ const page = () => {
 
 
         <div className="container mt-10">
-          <div className="edit grid grid-cols-[30%_60%] justify-between">
+          <div className="edit grid grid-cols-[30%_60%] md:gap-5 md:grid-cols-none justify-between">
             <div> 
-              <h2>Personal Info</h2>
+              <h2 className='text-md font-medium'>Personal Info</h2>
               <p>Upload your photo and personal details</p>
             </div>
 
             <form action="" className='bg-white p-5 rounded-md flex flex-col gap-5'>
-              <div className='grid grid-cols-2 gap-5'>
+              <div className='grid grid-cols-2 md:grid-cols-none gap-5 edit'>
                 <div>
                   <label htmlFor="firstName">First Name</label>
                   <input type="text" />

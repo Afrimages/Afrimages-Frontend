@@ -145,3 +145,14 @@ label{
 form input{
     @apply border-2 p-3 rounded-md text-[14px] focus:outline-none
 }
+
+/* .edit div{
+    
+} */
+
+@media screen and (max-width: 800px) {
+    .edit div{
+        display: flex;
+        flex-direction: column;
+    }
+}
