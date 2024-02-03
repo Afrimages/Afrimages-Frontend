@@ -223,3 +223,7 @@ form input {
     flex-direction: column;
   }
 }
+
+input[type='file'] {
+  @apply absolute top-0 w-[80px] h-[60px] opacity-0;
+}
