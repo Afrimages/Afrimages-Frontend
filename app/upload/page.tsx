@@ -19,6 +19,7 @@ import eyeIcon from '@/public/svg/eye.svg';
 import lockIcon from '@/public/svg/lock.svg';
 import Navbar from '@/components/ui/Navbar';
 import { HiPlus, HiX } from 'react-icons/hi';
+import FileBase64 from 'react-file-base64';
 
 export default function Upload() {
     const [active, setActive] = useState(false);
@@ -34,6 +35,7 @@ export default function Upload() {
         userPermission: false,
         userAgree: false,
     });
+    const [img, setImage] = useState()
 
     const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files && e.target.files[0];
@@ -53,7 +55,7 @@ export default function Upload() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        const data = {...formData, image: img}
         console.log('Form Submitted');
     };
 
@@ -70,17 +72,18 @@ export default function Upload() {
     }
 
     const removeKeyword = (k: string)=>{
-        let filtered = keywords.filter((key: string) => k !== k)
+        let filtered = keywords.filter((key: string) => key != k)
+        console.log(filtered)
         setKeywords(filtered)
     }
 
     return (
         <>
         <Navbar />
-        <main className='px-6 bg-grey100 rounded-[10px] font-lato lg:flex lg:justify-between lg:grid-cols-[60%_38%] lg:gap-6 lg:px-[100px] lg:py-8 mt-16'>
+        <main className=' bg-grey100 rounded-[10px] font-lato grid lg:justify-between lg:grid-cols-[60%_38%] md:flex md:flex-col md:px-xPadding  lg:gap-6 px-[100px] lg:py-8 mt-16'>
             {!active ? (
                 <div>
-                    <div className='text-center flex flex-col items-center justify-center gap-7 bg-white h-[90vh] fixed w-[50%] '>
+                    <div className='text-center flex flex-col items-center justify-center gap-7 bg-white h-[90vh] fixed md:static md:w-full w-[50%] '>
                     <div>
                         <h1 className='font-bold text-[1.75rem] leading-[2.5rem]'>
                             Upload Content
@@ -93,13 +96,13 @@ export default function Upload() {
 
                     <div className='flex items-center justify-center gap-6'>
                         {[
-                            {
-                                label: 'Video',
-                                name: 'user-video',
-                                accept: 'video/*',
-                                multiple: false,
-                                iconUrl: videoIcon,
-                            },
+                            // {
+                            //     label: 'Video',
+                            //     name: 'user-video',
+                            //     accept: 'video/*',
+                            //     multiple: false,
+                            //     iconUrl: videoIcon,
+                            // },
                             {
                                 label: 'Image',
                                 name: 'user-img',
@@ -107,28 +110,28 @@ export default function Upload() {
                                 multiple: false,
                                 iconUrl: imageIcon,
                             },
-                            {
-                                label: 'Collection',
-                                name: 'user-collection',
-                                multiple: true,
-                                iconUrl: collectionIcon,
-                            },
+                            // {
+                            //     label: 'Collection',
+                            //     name: 'user-collection',
+                            //     multiple: true,
+                            //     iconUrl: collectionIcon,
+                            // },
                         ].map((item) => (
-                            <div key={item.label} className='w-fit'>
+                            <div key={item.label} className='w-fit relative'>
                                 <label
                                     htmlFor={item.name}
                                     className='bg-orange400 rounded-xl w-[4.25rem] h-[4.25rem] flex items-center justify-center cursor-pointer'
                                 >
                                     <Image src={item.iconUrl} alt='' />
 
-                                    <input
+                                    <FileBase64
                                         type='file'
                                         name={item.name}
                                         id={item.name}
                                         accept={item.accept || undefined}
                                         multiple={item.multiple}
-                                        onChange={handleFileInputChange}
-                                        className='hidden'
+                                        onDone={(base64: any)=> {setImage(base64); setActive(true)}}
+                                        className='hidden opacity-0 absolute'
                                     />
                                 </label>
 
@@ -144,7 +147,7 @@ export default function Upload() {
 
             {/* This section displays data as it's inputted in the Form  */}
             {active ? (
-                <InputDisplay formData={formData} selectedFile={selectedFile} />
+                <InputDisplay formData={formData} selectedFile={img.base64} />
             ) : null}
 
             <form
@@ -182,11 +185,11 @@ export default function Upload() {
                             'Nature',
                             'Culture',],
                         },
-                        {
-                            label: 'Afrimage Visibility',
-                            name: 'userVisibility',
-                            options: ['Select an option', 'Everyone', 'Nobody'],
-                        },
+                        // {
+                        //     label: 'Afrimage Visibility',
+                        //     name: 'userVisibility',
+                        //     options: ['Select an option', 'Everyone', 'Nobody'],
+                        // },
                         // {
                         //     label: 'License',
                         //     name: 'userLicense',
@@ -203,7 +206,7 @@ export default function Upload() {
                     ))}
                 </div>
 
-                {[
+                {/* {[
                     {
                         label: 'This image contains Adult content',
                         name: 'userRating',
@@ -219,23 +222,25 @@ export default function Upload() {
                         name={item.name}
                         onChange={handleInputChange}
                     />
-                ))}
+                ))} */}
 
-                <div>
+                <div className='w-full'>
                     <p>Search Keywords</p>
                     <div className='flex gap-2'>
-                    <input type="text" value={key} onChange={handleKey} />
-                    <button className='border px-3 text-md rounded-md bg-orange800 text-white' onClick={()=> handleKeyword(key)}><HiPlus /></button>
+                        <input type="text" value={key} className='w-full' onChange={handleKey} />
+                        <button className='border px-3 text-md rounded-md bg-orange800 text-white' onClick={()=> handleKeyword(key)}><HiPlus /></button>
                     </div>
 
-                    <div>
+                    {
+                        keywords.length > 0 && 
+                        <div className='mt-3'>
                         <p>Added Keywords</p>
 
                         <div className='flex gap-3 flex-wrap'>
                             {
                                 keywords.map((key: string, i: number)=>{
                                     return(
-                                        <div className="px-2 py-1 flex gap-1 border items-center border-gray-400 w-fit rounded-md text-sm">
+                                        <div className="px-2 py-1 flex gap-1 border items-center border-gray-600 w-fit rounded-md text-[12px] text-gray-600">
                                             {key}
                                             <HiX className="cursor-pointer" onClick={()=> removeKeyword(key)}/>
                                         </div>
@@ -244,6 +249,7 @@ export default function Upload() {
                             }
                         </div>
                     </div>
+                    }
                 </div>
 
                 {/* Custom Checkbox comp */}
@@ -267,18 +273,19 @@ export default function Upload() {
                 </div>
 
                 {/* Actions Button */}
-                <div className='space-y-3 md:flex md:flex-row-reverse items-center justify-center md:gap-4 md:space-y-0 pt-5 md:py-8'>
+                <div className='space-y-3 flex flex-col items-center justify-center md:gap-4 md:space-y-0 pt-5 md:py-8'>
                     <FormButton
                         type='main'
+                        submit={true}
                         className='flex items-center justify-center gap-2'
                     >
                         <Image src={uploadIcon} alt='' width={24} height={24} />
                         Publish
                     </FormButton>
 
-                    <FormButton type='outline'>Save To Draft</FormButton>
+                    {/* <FormButton type='outline'>Save To Draft</FormButton> */}
 
-                    <FormButton type='plain'>Cancel</FormButton>
+                    {/* <FormButton type='outline'>Cancel</FormButton> */}
                 </div>
             </form>
         </main>
@@ -299,11 +306,13 @@ type InputDisplayProps = {
 
 function InputDisplay({ formData, selectedFile }: InputDisplayProps) {
     return (
-        <section className='bg-white  py-8 px-2 rounded-[10px] flex flex-col justify-end gap-4 md:px-9 md:py-6 lg:gap-2 h-full'>
+        <section className='bg-white  py-8 px-6 rounded-[10px] flex flex-col justify-end gap-4 md:px-2 md:py-6 lg:gap-2 h-full'>
             <Image
                 src={selectedFile}
                 alt='Selected File'
-                className='bg-red-400 flex-1'
+                className='bg-red-400 flex-1 w-full h-full'
+                width={100}
+                height={100}
             />
 
             <div className='leading-6'>
