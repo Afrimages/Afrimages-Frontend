@@ -87,8 +87,8 @@ export default function Creator() {
 
           {/* Marquee */}
 
-          <div className='flex items-center gap-3 my-14 overflow-hidden pl-[100px]'>
-            {[heroImg1, heroImg2, heroImg3, heroImg4].map((image, index) => (
+          <div className='marquee flex items-center gap-6 my-14'>
+            {[heroImg1, heroImg2, heroImg3, heroImg1].map((image, index) => (
               <Image
                 key={index}
                 src={image}

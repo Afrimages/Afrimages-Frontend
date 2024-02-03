@@ -134,6 +134,77 @@ label {
   background: rgba(221, 142, 102, 0.5);
 }
 
+/*  ------------------------------------------------
+    Custom Styling for Hero Marquee
+    ------------------------------------------------   */
+
+/* .marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee img {
+  display: inline-block;
+  animation: marquee 10s both infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(90vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+} */
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee img {
+  /* width: 100%; */
+  /* height: 100%; */
+  -moz-transform: translateX(50%);
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+  -moz-animation: marquee 5s linear infinite;
+  -webkit-animation: marquee 5s linear infinite;
+  animation: marquee 10s linear infinite;
+}
+
+@-moz-keyframes marquee {
+  0% {
+    -moz-transform: translateX(100vw);
+  }
+  100% {
+    -moz-transform: translateX(-100vw);
+  }
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translateX(100vw);
+  }
+  100% {
+    -webkit-transform: translateX(-100vw);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    -moz-transform: translateX(100vw);
+    -webkit-transform: translateX(100vw);
+    transform: translateX(100vw);
+  }
+  100% {
+    -moz-transform: translateX(-100vw);
+    -webkit-transform: translateX(-100vw);
+    transform: translateX(-100vw);
+  }
+}
+
 .container {
   @apply px-xPadding;
 }
