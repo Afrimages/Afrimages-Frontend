@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { RiGoogleFill } from 'react-icons/ri'
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import {continueWithGoogle, signUp} from "../../request"
+import Loader from '../_components/Loader';
 
 const page = () => {
     const [email, setEmail] = useState("");
