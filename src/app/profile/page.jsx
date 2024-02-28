@@ -9,7 +9,7 @@ import { RiShareFill } from 'react-icons/ri'
 import useLocalStorage from 'use-local-storage'
 
 const page = () => {
-  const [user, setUser] = useLocalStorage("user", null)
+  const [user, setUser] = useLocalStorage("user", {})
 
   const data = [
     {
