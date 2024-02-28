@@ -60,7 +60,7 @@ export default function Navbar({ active = 0 }) {
 
 
         {
-          user._id ?
+          user?._id ?
 
             <>
               <a
