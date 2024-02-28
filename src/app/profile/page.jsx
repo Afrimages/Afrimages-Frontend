@@ -3,6 +3,7 @@ import Footer from '@/components/ui/Footer'
 import MyImage from '@/components/ui/MyImage'
 import Navbar from '@/components/ui/Navbar'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { RiShareFill } from 'react-icons/ri'
 import useLocalStorage from 'use-local-storage'
@@ -120,9 +121,11 @@ const page = () => {
                 <p>Share Profile</p>
               </div>
 
-              <div className='flex items-center gap-2 bg-orange800 border-2 border-orange800 text-white py-3 px-5 rounded-md cursor-pointer'>
-                <p>Edit Profile</p>
-              </div>
+              <Link href={"/profile/edit"}>
+                <div className='flex items-center gap-2 bg-orange800 border-2 border-orange800 text-white py-3 px-5 rounded-md cursor-pointer'>
+                  <p>Edit Profile</p>
+                </div>
+              </Link>
             </div>
           </div>
 
@@ -131,7 +134,7 @@ const page = () => {
 
 
         <div className="container my-10">
-          <div className="edit grid grid-cols-[30%_60%] md:gap-5 md:grid-cols-none justify-between  md:block">
+          {/* <div className="edit grid grid-cols-[30%_60%] md:gap-5 md:grid-cols-none justify-between  md:block">
             <div> 
               <h2 className='text-md font-medium'>Personal Info</h2>
               <p>Upload your photo and personal details</p>
@@ -155,9 +158,9 @@ const page = () => {
                 <input type="email" />
               </div>
             </form>
-          </div>
+          </div> */}
 
-          <div className='mt-5'>
+          <div className='mt-5 flex flex-col gap-3'>
             <div>
               <h2 className='text-md font-medium'>Portfolio</h2>
               <p>Share a few snippets of your work.</p>
@@ -188,8 +191,8 @@ const page = () => {
           </div>
 
 
-          <div className='mt-20'>
-              <div className=''>
+          <div className='mt-20 flex flex-col gap-3'>
+              <div className='text-[24px]'>
                 My Assets
               </div>
 

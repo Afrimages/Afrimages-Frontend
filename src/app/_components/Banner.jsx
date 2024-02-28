@@ -34,7 +34,7 @@ export default function Banner() {
         </div>
       </div>
 
-      <Image src={"/./cluster.png"} alt='' width={0} height={0} className='w-full '/>
+      <Image src={"/./cluster.png"} alt='' width={0} height={0} className='w-full' unoptimized={true}/>
     </section>
   );
 }

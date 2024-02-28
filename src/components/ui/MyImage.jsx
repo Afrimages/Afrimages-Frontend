@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { RiAddLine, RiDownload2Fill, RiHeart2Line } from 'react-icons/ri'
 import Link from 'next/link'
+import { HiEye, HiPencil, HiTrash } from 'react-icons/hi'
 
 const MyImage = (content) => {
   return (
@@ -16,6 +17,11 @@ const MyImage = (content) => {
 
           <div className='image-options'>
             <div className="full-overlay" />
+            {/* <div className='flex absolute top-1 items-center gap-2 z-20 text-white '>
+              <HiEye size={30}/>
+              <HiPencil size={30}/>
+              <HiTrash size={30}/>
+            </div> */}
 
           </div>
           {/* } */}
@@ -25,6 +31,10 @@ const MyImage = (content) => {
         </div>
       </Link>
 
+      <div>
+        <h2>{content.title}</h2>
+        <p>{content.description}</p>
+      </div>
 
       <div className="flex items-center justify-between mt-3">
         <div className='flex gap-2 items-center'>

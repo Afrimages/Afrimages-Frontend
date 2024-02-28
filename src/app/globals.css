@@ -247,3 +247,21 @@ input[type='file'] {
     transform: rotate(360deg);
   }
 } 
+
+.edit div{
+  width: 48%;
+}
+
+.edit div.bio{
+  width: 100%;
+}
+
+.edit div.bio textarea{
+  width: 100%;
+  @apply border border-gray-500 p-3 rounded-md focus:outline-none resize-none h-[100px]
+}
+
+.edit div input{
+  width: 100%;
+  @apply border border-gray-500 p-3 rounded-md focus:outline-none
+}

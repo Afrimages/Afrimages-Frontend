@@ -1,21 +1,21 @@
 import Image from 'next/image'
 
-import heroImg1 from '@/public/images/creator/creator-hero-img-1.png'
-import heroImg2 from '@/public/images/creator/creator-hero-img-2.png'
-import heroImg3 from '@/public/images/creator/creator-hero-img-3.png'
-import heroImg4 from '@/public/images/creator/creator-hero-img-4.png'
-import whyCollageImg1 from '@/public/images/creator/creator-why-collage-1.png'
-import whyCollageImg2 from '@/public/images/creator/creator-why-collage-2.png'
-import whyCollageImg3 from '@/public/images/creator/creator-why-collage-3.png'
-import whyCollageImg4 from '@/public/images/creator/creator-why-collage-4.png'
-import ctaCollageImg from '@/public/images/creator/creator-cta-colllage.png'
+import heroImg1 from '@/../public/images/creator/creator-hero-img-1.png'
+import heroImg2 from '@/../public/images/creator/creator-hero-img-2.png'
+import heroImg3 from '@/../public/images/creator/creator-hero-img-3.png'
+import heroImg4 from '@/../public/images/creator/creator-hero-img-4.png'
+import whyCollageImg1 from '@/../public/images/creator/creator-why-collage-1.png'
+import whyCollageImg2 from '@/../public/images/creator/creator-why-collage-2.png'
+import whyCollageImg3 from '@/../public/images/creator/creator-why-collage-3.png'
+import whyCollageImg4 from '@/../public/images/creator/creator-why-collage-4.png'
+import ctaCollageImg from '@/../public/images/creator/creator-cta-colllage.png'
 
-import heartOutlineIcon from '@/public/svg/heart-outline.svg'
-import atomIcon from '@/public/svg/atom.svg'
-import feedbackIcon from '@/public/svg/feedback.svg'
-import uploadIcon from '@/public/svg/upload-linear.svg'
-import tagsIcon from '@/public/svg/tags.svg'
-import monitorIcon from '@/public/svg/monitor.svg'
+import heartOutlineIcon from '@/../public/svg/heart-outline.svg'
+import atomIcon from '@/../public/svg/atom.svg'
+import feedbackIcon from '@/../public/svg/feedback.svg'
+import uploadIcon from '@/../public/svg/upload-linear.svg'
+import tagsIcon from '@/../public/svg/tags.svg'
+import monitorIcon from '@/../public/svg/monitor.svg'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
 
@@ -259,11 +259,10 @@ export default function Creator() {
                 ${index === 0 || index === 2 ? 'bg-offWhite' : ''}`}
               >
                 <div
-                  className={`rounded-full w-8 h-8 flex items-center justify-center ${
-                    index === 0 || index === 2
+                  className={`rounded-full w-8 h-8 flex items-center justify-center ${index === 0 || index === 2
                       ? 'bg-[#EBE5D6]'
                       : 'bg-transparent border border-black'
-                  }`}
+                    }`}
                 >
                   <Image src={item.icon} alt='' width={20} height={20} />
                 </div>

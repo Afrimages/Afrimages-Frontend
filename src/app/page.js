@@ -16,7 +16,7 @@ export default function Home() {
         <Main />
         <Banner />
       </div>
-      <Footer />/
+      <Footer />
     </div>
   );
 }
