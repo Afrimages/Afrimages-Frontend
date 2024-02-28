@@ -4,7 +4,7 @@ import { HiSave } from 'react-icons/hi'
 import useLocalStorage from 'use-local-storage'
 
 const Edit = () => {
-    const [user, setUser] = useLocalStorage("user", null)
+    const [user, setUser] = useLocalStorage("user", {})
 
   return (
     <div>
@@ -12,7 +12,7 @@ const Edit = () => {
 
         <div className='flex flex-col gap-5 w-2/3 m-auto items-center justify-center my-10'>
             <div className='flex flex-col gap-3'>
-                <img src={user.profilePicture} alt="" className='rounded-full'/>
+                <img src={user?.profilePicture} alt="" className='rounded-full'/>
                 <button className='bg-orange800 py-3 px-6 text-white rounded-md'>Change Profile Picture</button>
             </div>
 
