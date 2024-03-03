@@ -7,7 +7,8 @@ import useLocalStorage from "use-local-storage";
 
 export default function Navbar({ active = 0 }) {
 
-  const [user, setUser] = useLocalStorage("user", null)
+  // const [user, setUser] = useLocalStorage("user", null)
+  const [user, setUser] = useState(null)
   const nav = [
     {
       title: 'Home',
@@ -60,7 +61,7 @@ export default function Navbar({ active = 0 }) {
 
 
         {
-          user?._id ?
+          user ?
 
             <>
               <a

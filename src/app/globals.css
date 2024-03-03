@@ -250,6 +250,7 @@ input[type='file'] {
 
 .edit div{
   width: 48%;
+  @apply md:w-full
 }
 
 .edit div.bio{
@@ -263,5 +264,6 @@ input[type='file'] {
 
 .edit div input{
   width: 100%;
-  @apply border border-gray-500 p-3 rounded-md focus:outline-none
+  @apply border border-gray-500 p-3 rounded-md focus:outline-none md:w-full
+
 }

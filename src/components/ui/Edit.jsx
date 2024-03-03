@@ -10,7 +10,7 @@ const Edit = () => {
     <div>
         <h2 className='text-center text-[32px] font-semibold'>Edit Profile</h2>
 
-        <div className='flex flex-col gap-5 w-2/3 m-auto items-center justify-center my-10'>
+        <div className='flex flex-col gap-5 w-2/3 md:w-full md:p-xPadding m-auto items-center justify-center my-5'>
             <div className='flex flex-col gap-3'>
                 <img src={user?.profilePicture} alt="" className='rounded-full'/>
                 <button className='bg-orange800 py-3 px-6 text-white rounded-md'>Change Profile Picture</button>
@@ -60,7 +60,7 @@ const Edit = () => {
 
             </div>
 
-            <button className='bg-orange800 py-3 px-6 text-white rounded-md flex gap-2 items-center'>Save <HiSave /> </button>
+            <button className='bg-orange800 py-3 px-6 text-white rounded-md flex gap-2 items-center md:w-full text-center justify-center'>Save <HiSave /> </button>
         </div>
     </div>
   )
