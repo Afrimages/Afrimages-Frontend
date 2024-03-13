@@ -37,18 +37,6 @@ label {
   }
 }
 
-.auth {
-  @apply mt-6;
-}
-
-.auth > div {
-  @apply flex flex-col gap-1;
-}
-
-.auth > div input {
-  @apply border-black border-[1px] p-2 md:py-4 md:px-3 md:text-sm rounded-lg;
-}
-
 .overlay {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
 

@@ -204,7 +204,7 @@ const Page = () => {
 
           <div className="grid grid-cols-3 gap-5 md:grid-cols-none">
             {images3.map((img, i) => {
-              return <MyImage {...img} />;
+              return <MyImage {...img} key={i} />;
             })}
           </div>
         </div>
