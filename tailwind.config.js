@@ -13,16 +13,6 @@ const config = {
       fontFamily: {
         poppins: ["var(--font-poppins)"],
       },
-      screens: {
-        sm: { max: "600px" },
-        sm1: { max: "768px" },
-        md: { max: "900px" },
-        md1: { max: "850px" },
-        lg: { max: "1070px" },
-        ls: { max: "1370px" },
-        xl: { max: "1250px" },
-        lf: { max: "1150px" },
-      },
       colors: {
         green400: "#62B66F",
         green500: "#A9DCB3",

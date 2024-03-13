@@ -1,18 +1,14 @@
-import React from 'react'
-import ImageContent from './ImageContent'
+import React from "react";
+import ImageContent from "./ImageContent";
 
-const V_ImagesContainer = ({images}) => {
+const V_ImagesContainer = ({ images }) => {
   return (
-    <div className='flex flex-col gap-3'>
-        {
-            images.map((image, i)=>{
-                return (
-                    <ImageContent {...image}/>
-                )
-            })
-        }
+    <div className="flex flex-col gap-3">
+      {images.map((image, i) => {
+        return <ImageContent {...image} key={i} />;
+      })}
     </div>
-  )
-}
+  );
+};
 
-export default V_ImagesContainer
+export default V_ImagesContainer;

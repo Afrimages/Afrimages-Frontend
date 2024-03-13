@@ -1,50 +1,51 @@
 import axios from "axios";
 import { save } from "./localStorageServices";
 import { toastError, toastSuccess } from "./toaster";
+import { PUBlIC_API_URL } from "../constants/env";
 
 const axiosConfig = axios.create({
-    baseURL: "https://afrimages.onrender.com/api/v1",
-    headers: {
-        Authorization: ""
-    }
-})
+  baseURL: PUBlIC_API_URL,
+});
 
-export const signUp = async (data)=>{
-   await axiosConfig.post("/auth/register", data)
+export const signUp = async (data) => {
+  await axiosConfig
+    .post("/auth/register", data)
     .then((resp) => {
-        let data = resp.data;
-        save("user", data.user)
-        save("token", data.token)
-        toastSuccess("Signed Up Successfully")
+      let data = resp.data;
+      save("user", data.user);
+      save("token", data.token);
+      toastSuccess("Signed Up Successfully");
 
-        window.location.href = "/"
+      // window.location.href = "/"
     })
-    .catch((err)=>{
-        toastError(err.response.data.error)
-    })
-}
+    .catch((err) => {
+      toastError(err.response.data.error);
+    });
+};
 
-export const signIn = async (data)=>{
-   await axiosConfig.post("/auth/login", data )
+export const signIn = async (data) => {
+  await axiosConfig
+    .post("/auth/login", data)
     .then((resp) => {
-        let data = resp.data;
-        save("user", data.user)
-        save("token", data.token)
-        toastSuccess("Logged In Successfully")
+      let data = resp.data;
+      save("user", data.user);
+      save("token", data.token);
+      toastSuccess("Logged In Successfully");
 
-        window.location.href = "/"
+      window.location.href = "/";
     })
-    .catch((err)=>{
-        toastError(err.response.data.error)
-    })
-}
+    .catch((err) => {
+      toastError(err.response.data.error);
+    });
+};
 
-export const continueWithGoogle = async ()=>{
-    await axiosConfig.post("/auth/google")
+export const continueWithGoogle = async () => {
+  await axiosConfig
+    .post("/auth/google")
     .then((resp) => {
-        console.log(resp)
+      console.log(resp);
     })
-    .catch((err)=>{
-        console.log(err)
-    })
-}
+    .catch((err) => {
+      console.log(err);
+    });
+};

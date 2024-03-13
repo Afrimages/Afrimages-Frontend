@@ -4,10 +4,14 @@ import { useState } from "react";
 import { RiMenuLine, RiSearch2Line } from "react-icons/ri";
 import { HiX } from "react-icons/hi";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export default function Navbar({ active = 0 }) {
   // const [user, setUser] = useLocalStorage("user", null)
   const [user, setUser] = useState(null);
+
+  const { data: session } = useSession();
+
   const nav = [
     {
       title: "Home",
@@ -26,13 +30,13 @@ export default function Navbar({ active = 0 }) {
   const [mNav, setMNav] = useState(false);
 
   return (
-    <div className="grid  bg-white  py-2 px-xPadding items-center justify-center grid-cols-2 border-b-[1px] border-b-gray-300 z-50 fixed top-0 left-0 right-0 mb-10">
+    <div className="grid bg-white  py-2 px-xPadding items-center justify-center grid-cols-2 border-b-[1px] border-b-gray-300 z-50 fixed top-0 left-0 right-0 mb-10">
       <div className="flex items-center gap-6">
         <Link href="/">
           <Image width={200} height={200} src="/./logo.png" alt="" unoptimized className="md:h-[60px] w-auto" />
         </Link>
 
-        <div className="flex gap-10 justify-center text-[0.8em] md:hidden sm:hidden ">
+        <div className="md:flex gap-10 justify-center text-[0.8em] hidden">
           {nav.map((item, i) => {
             return (
               <Link href={item.link} className={active == i ? "font-bold text-orange800" : ""} key={i}>
@@ -43,7 +47,7 @@ export default function Navbar({ active = 0 }) {
         </div>
       </div>
 
-      <div className="flex gap-10 items-center justify-end text-[0.8em] md:hidden sm:hidden">
+      <div className="md:flex gap-10 items-center justify-end text-[0.8em] hidden">
         <div className="flex gap-2 items-center border-2 border-gray-300 bg-white rounded-md w-[50%] p-2">
           <RiSearch2Line size={20} className="text-gray-500" />
           <input
@@ -53,7 +57,7 @@ export default function Navbar({ active = 0 }) {
           />
         </div>
 
-        {user ? (
+        {session?.user ? (
           <>
             <Link
               href={"/upload"}
@@ -79,7 +83,7 @@ export default function Navbar({ active = 0 }) {
         )}
       </div>
 
-      <div className="justify-end hidden gap-10 md:flex sm:flex">
+      <div className="flex justify-end gap-10 md:hidden">
         {/* <RiSearch2Line size={24}/> */}
 
         <RiMenuLine size={24} onClick={() => setMNav(!mNav)} />

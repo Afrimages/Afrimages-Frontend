@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Banner() {
   return (
-    <section className="flex items-center gap-5 py-20 my-10 md:flex-col px-xPadding bg-green500">
+    <section className="items-center gap-5 py-20 my-10 space-y-10 md:flex px-xPadding bg-green500 md:space-y-0">
       <div className="flex flex-col gap-2">
         <h1 className="text-[2em] text-orange900">
           Join <span className="text-green1000">Afrimages&apos;</span> Creator Community
