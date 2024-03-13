@@ -1,9 +1,9 @@
 "use client";
-import Navbar from "@/components/ui/Navbar";
-import Hero from "./_components/Hero";
-import Banner from "./_components/Banner";
-import Footer from "@/components/ui/Footer";
-import Main from "./_components/Main";
+import Navbar from "@/components/Layout/Navbar";
+import Hero from "../components/UI/Home/Hero";
+import Banner from "../components/UI/Home/Banner";
+import Footer from "@/components/Layout/Footer";
+import Main from "../components/UI/Home/Main";
 
 export default function Home() {
   return (
