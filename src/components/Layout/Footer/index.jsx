@@ -99,7 +99,7 @@ const Footer = () => {
 
             <p className="text-white">Get exclusive updates just for you</p>
 
-            <Link href={"/sign-up"}>
+            <Link href={"/account/register"}>
               <div className="bg-orange800 text-white py-3 px-6 text-[0.8em] rounded-md w-fit cursor-pointer">
                 Sign Up
               </div>

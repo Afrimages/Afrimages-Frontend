@@ -1,10 +1,12 @@
 "use client";
-import { signIn } from "@/utils/helpers/request";
+import { signIn as signInRequest } from "@/utils/helpers/request";
 import Image from "next/image";
 import React, { useState } from "react";
-import { GoogleLogin } from "@react-oauth/google";
+// import { GoogleLogin } from "@react-oauth/google";
 import Loader from "../../../../components/Common/Loaders/Loader";
-import Link from 'next/link'
+import Link from "next/link";
+import GoogleSignInButton from "@/components/Common/Buttons/google-sign-in";
+import { signIn } from "next-auth/react";
 
 const page = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +25,7 @@ const page = () => {
     setLoading(true);
     let data = { email, password };
     console.log(data);
-    signIn(data);
+    signInRequest(data);
   };
 
   return (
@@ -66,16 +68,9 @@ const page = () => {
 
           <p>OR</p>
 
-          {/* <GoogleOAuthProvider clientId="<your_client_id>">
-                    <div className='justify-center w-full p-3 border border-black rounded-lg cursor-pointer set-3'>
-                        <RiGoogleFill />
-                        <p>
-                            Sign in with Google
-                        </p>
-                    </div>
-                </GoogleOAuthProvider> */}
+          <GoogleSignInButton onClick={() => signIn("google")} variant="login" />
 
-          <GoogleLogin
+          {/* <GoogleLogin
             className="w-full"
             onSuccess={(credentialResponse) => {
               console.log(credentialResponse);
@@ -83,7 +78,7 @@ const page = () => {
             onError={() => {
               console.log("Login Failed");
             }}
-          />
+          /> */}
         </div>
       </div>
     </div>

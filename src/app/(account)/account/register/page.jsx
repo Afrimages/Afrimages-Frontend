@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { GoogleLogin } from "@react-oauth/google";
 import { continueWithGoogle, signUp } from "../../../../utils/helpers/request";
 import Loader from "../../../../components/Common/Loaders/Loader";
 import Link from "next/link";
+import GoogleSignInButton from "@/components/Common/Buttons/google-sign-in";
+import { signIn } from "next-auth/react";
 
 const page = () => {
   const [email, setEmail] = useState("");
@@ -87,15 +88,15 @@ const page = () => {
             </Link>
           </p>
           <p>OR</p>
-          <GoogleLogin
+          <GoogleSignInButton onClick={() => signIn("google")} />
+          {/* <GoogleLogin
             onSuccess={(credentialResponse) => {
               console.log(credentialResponse);
             }}
             onError={() => {
               console.log("Login Failed");
             }}
-          />
-          ;
+          /> */}
         </div>
       </div>
     </div>

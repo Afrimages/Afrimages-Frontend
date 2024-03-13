@@ -1,13 +1,16 @@
 "use client";
-import GoogleOAuthProviderWrapper from "./google-provider";
+import { SessionProvider } from "next-auth/react";
+import AuthProvider from "./auth-provider";
 import { Toaster } from "react-hot-toast";
 
 const Providers = ({ children }) => {
   return (
-    <GoogleOAuthProviderWrapper>
-      {children}
-      <Toaster />
-    </GoogleOAuthProviderWrapper>
+    <SessionProvider>
+      <AuthProvider>
+        {children}
+        <Toaster />
+      </AuthProvider>
+    </SessionProvider>
   );
 };
 

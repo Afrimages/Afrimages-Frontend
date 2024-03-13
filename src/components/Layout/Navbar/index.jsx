@@ -4,10 +4,14 @@ import { useState } from "react";
 import { RiMenuLine, RiSearch2Line } from "react-icons/ri";
 import { HiX } from "react-icons/hi";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export default function Navbar({ active = 0 }) {
   // const [user, setUser] = useLocalStorage("user", null)
   const [user, setUser] = useState(null);
+
+  const { data: session } = useSession();
+
   const nav = [
     {
       title: "Home",
@@ -53,7 +57,7 @@ export default function Navbar({ active = 0 }) {
           />
         </div>
 
-        {user ? (
+        {session?.user ? (
           <>
             <Link
               href={"/upload"}
