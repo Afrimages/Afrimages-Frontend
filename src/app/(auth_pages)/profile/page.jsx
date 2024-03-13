@@ -111,18 +111,18 @@ const Page = () => {
       <Navbar active={"p"} />
 
       <div className=" mt-[65px]">
-        <div className="cover w-full h-[30vh] md:h-[180px]">
+        <div className="cover w-full md:h-[30vh] h-[180px]">
           <Image src="/banner.png" alt="" width={500} height={500} className="object-cover w-full h-full" />
         </div>
 
-        <div className="details flex md:flex-col md:items-start justify-between items-center px-xPadding -mt-[45px] md:-mt-[30px]">
+        <div className="details md:flex items-start justify-between md:items-center px-xPadding md:-mt-[45px] -mt-[30px]">
           <div className="flex items-center justify-between gap-5">
             <Image
               width={300}
               height={300}
               src={session?.user.image}
               alt="profile picture"
-              className="w-[170px] md:w-[140px] md:h-[140px] h-[170px] rounded-full border-[5px] border-white object-cover"
+              className="md:w-[170px] w-[140px] h-[140px] md:h-[170px] rounded-full border-[5px] border-white object-cover"
             />
             <div>
               <h2 className="font-[600] text-md">{session?.user.name}</h2>
@@ -130,7 +130,7 @@ const Page = () => {
             </div>
           </div>
 
-          <div className="flex gap-5 items-center md:mt-[20px] ">
+          <div className="flex gap-5 items-center mt-[20px] md:mt-0">
             <div className="flex items-center gap-2 px-5 py-3 border-2 rounded-md cursor-pointer border-orange800 text-orange800">
               <RiShareFill />
               <p>Share Profile</p>
@@ -180,7 +180,7 @@ const Page = () => {
             <p>Share a few snippets of your work.</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-20 p-5 bg-white rounded-md md:flex md:flex-col md:mt-3">
+          <div className="flex grid-cols-2 gap-20 p-5 mt-3 bg-white rounded-md md:grid md:mt-0">
             <div className="flex flex-col gap-5">
               {data.map((item, i) => {
                 return (
@@ -202,7 +202,7 @@ const Page = () => {
         <div className="flex flex-col gap-3 mt-20">
           <div className="text-[24px]">My Assets</div>
 
-          <div className="grid grid-cols-3 gap-5 md:grid-cols-none">
+          <div className="grid gap-5 md:grid-cols-3 sm:grid-cols-2 ">
             {images3.map((img, i) => {
               return <MyImage {...img} key={i} />;
             })}

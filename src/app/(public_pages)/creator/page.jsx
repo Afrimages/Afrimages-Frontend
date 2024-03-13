@@ -91,14 +91,14 @@ export default function Creator() {
 
         {/* Info Section */}
         <section className="flex flex-col gap-20 py-20 bg-offWhite ">
-          <div className="text-center md:text-left px-xPadding">
+          <div className="text-left md:text-center px-xPadding">
             <h1
               className="md:text-3xl
               text-mdl
              font-medium 
              w-4/5 
-             md:m-0
-             m-auto 
+             m-0
+             md:m-auto 
              leading-[3rem]"
             >
               Your talent deserves recognition and we are here to elevate your{" "}
@@ -121,7 +121,7 @@ export default function Creator() {
             </p>
           </div>
 
-          <div className="grid items-center justify-center grid-cols-2 gap-6 sm:grid-cols-1 px-xPadding md:gap-10">
+          <div className="grid items-center justify-center grid-cols-2 gap-10 md:gap-6 sm:grid-cols-1 px-xPadding">
             <div className="sm:order-2 rounded-[10px] py-12 px-11 gradient-collage flex flex-col gap-7 items-center">
               <Image src={whyCollageImg1} alt="" width={415} height={213} />
 
@@ -134,7 +134,7 @@ export default function Creator() {
               </div>
             </div>
 
-            <div className="px-[10%] md:px-0 flex flex-col gap-3 md:gap-6 md:items-start items-center justify-center">
+            <div className="md:px-[10%] px-0 flex flex-col gap-3 md:gap-6 md:items-start items-center justify-center">
               <p className="text-center text-mdl md:text-3xl md:text-left">
                 Upload your photos, designs, illustrations, vectors on{" "}
                 <Link href="#" className="font-semibold text-green700">
@@ -148,12 +148,12 @@ export default function Creator() {
         </section>
 
         {/* Why Section */}
-        <section className="my-24">
-          <h1 className="text-center text-[2rem] md:text-2xl font-bold max-w-xl mx-auto">
+        <section className="container my-24">
+          <p className="text-center text-[2rem] md:text-2xl font-bold max-w-xl mx-auto">
             Why you should become a contributor on <span className="font-bold text-green800">afrimages</span>
-          </h1>
+          </p>
 
-          <div className="flex items-center justify-center gap-8 mb-6 md:flex-col mt-9">
+          <div className="container flex items-center justify-center gap-8 mb-6 md:flex-row flow-col mt-9">
             {[
               {
                 text: "Get recognized and given due credit for your creativity; as a contributor on afrimages you can be rest assured that we wont take credit for your work as your name or initials will be attached to every upload ",
@@ -213,18 +213,12 @@ export default function Creator() {
         <section className="flex flex-col items-center justify-center my-16 px-xPadding">
           <h1
             className="md:font-medium
-            font-bold 
-            md:text-[1.6em]
-          text-[2em] 
-          leading-[38px] 
-          text-center 
-          md:w-4/5
-          w-3/5 "
+            font-bold md:text-[1.6em] text-[2em] leading-[38px]  text-center  w-4/5 md:w-3/5 "
           >
             Creative tools we provided to make your uploading easy and seamless
           </h1>
 
-          <div className="flex items-center justify-between mt-8 sm:flex-col gap-9">
+          <div className="flex flex-col items-center justify-between mt-8 md:flex-row gap-9">
             {[
               {
                 heading: "Batch uploading",
@@ -249,8 +243,8 @@ export default function Creator() {
                 bg-white 
                 shadow-md 
                 px-5 
-                md:py-8
-                py-16 
+                py-8
+                md:py-16 
                 rounded-md 
                 sm:w-[80%]
                 w-1/3 
@@ -284,8 +278,8 @@ export default function Creator() {
         <section className="my-16 px-xPadding">
           <h1
             className="
-          md:text-[18px]
-          text-2xl 
+          text-[18px]
+          md:text-2xl 
           font-medium 
           text-center"
           >
@@ -305,7 +299,7 @@ export default function Creator() {
               placeholder:text-[#545454] 
               font-light 
               md:font-normal
-                md:text-xs
+              text-xs
               focus:outline-none"
             />
 
@@ -317,8 +311,8 @@ export default function Creator() {
                 required
                 className="flex-1 md:text-xs
                 placeholder:text-[#545454]
-                font-light 
-                md:font-normal
+                md:font-light 
+                font-normal
                 border-none 
                 border-b-2 
                 border-gray-500"
@@ -335,11 +329,11 @@ export default function Creator() {
         </section>
 
         {/* CTA (Call to Action) Section*/}
-        <section className="flex items-center justify-center gap-20 py-24 bg-offWhite sm:flex-col-reverse px-xPadding">
+        <section className="flex flex-col items-center justify-center gap-20 py-24 bg-offWhite md:flex-row px-xPadding">
           <div className="leading-6 gradient-collage rounded-[10px] flex flex-col gap-1 py-12 px-8 ">
-            <h1 className="font-bold md:text-[18px] text-xl max-w-[388px]">
+            <p className="font-bold md:text-[18px] text-xl max-w-[388px]">
               We welcome you to a world of creativity and exposure
-            </h1>
+            </p>
 
             <p className="my-3 text-sm md:text-xs">Trust us with your creativity and explore a new world</p>
 
