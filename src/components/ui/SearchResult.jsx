@@ -61,7 +61,7 @@ const SearchResult = ({query}) => {
     <div className='mt-24 px-xPadding min-h-[70vh]'>
         <p className='text-[1.2em] text-gray-500'>Results for <span className='font-bold text-black'>{query}</span> </p>
 
-        <div className="more-options flex items-center justify-center my-3 gap-10 md:gap-0 md:justify-between">
+        <div className="more-options flex items-center md:justify-center my-3 md:gap-10 gap-0 justify-between">
             {
                 options.map((option, i)=> {
                     return (

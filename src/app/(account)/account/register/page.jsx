@@ -8,6 +8,7 @@ import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { publicApi } from "@/utils/configs/axios-instance";
+import { useRouter } from "next/navigation";
 
 const page = () => {
   const [loading, setLoading] = useState(false);
@@ -18,11 +19,16 @@ const page = () => {
     handleSubmit,
   } = useForm();
 
+  const router = useRouter();
+
   // data -> firstName, lastName, email, password
   const submitForm = async (data) => {
     try {
       setLoading(true);
       await publicApi.post("/auth/register", data);
+      toast.success("Account created successfully.");
+
+      router.push("/account/login");
     } catch (e) {
       toast.error(e.response.data.error ?? "an error occurred");
     } finally {

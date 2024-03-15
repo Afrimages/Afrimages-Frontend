@@ -1,14 +1,14 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-// import { GoogleLogin } from "@react-oauth/google";
 import Loader from "../../../../components/Common/Loaders/Loader";
 import Link from "next/link";
 import GoogleSignInButton from "@/components/Common/Buttons/google-sign-in";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { publicApi } from "@/utils/configs/axios-instance";
+import { useRouter } from "next/navigation";
+import { toastError, toastSuccess } from "@/utils/helpers/toaster";
 
 const page = () => {
   const [loading, setLoading] = useState(false);
@@ -19,12 +19,22 @@ const page = () => {
     handleSubmit,
   } = useForm();
 
+  const router = useRouter();
+
   // data -> email, password
   const submitForm = async (data) => {
     try {
       setLoading(true);
       // TODO: change this to next auth later
-      await publicApi.post("/auth/login", data);
+      const res = await signIn("credentials", { ...data });
+
+      // if (!res.ok) {
+      //   toastError("Login failed");
+      //   setLoading(false);
+      // }
+
+      // toastSuccess("Login successful");
+      // router.replace("/profile");
     } catch (e) {
       toast.error(e.response.data.error ?? "an error occurred");
     } finally {
