@@ -2,18 +2,18 @@
 
 import H_ImagesContainer from "@/components/UI/H_ImagesContainer";
 import React, { useEffect, useState } from "react";
-import { authApi } from "@/utils/configs/axios-instance";
+import { publicApi } from "@/utils/configs/axios-instance";
 
 export default function Main() {
   const [isLoading, setIsLoading] = useState(true);
   const [value, setValue] = useState(0);
   const [categories, setCategories] = useState([]);
-  const [images, setImages] = useState([]);
+  // const [images, setImages] = useState([]);
 
   const fetchCategories = async (url) => {
     setIsLoading(true);
     try {
-      const { data } = await authApi(url);
+      const { data } = await publicApi(url);
       data.unshift({ _id: "all", title: "all" });
       setCategories(data);
       setIsLoading(false);
@@ -22,53 +22,53 @@ export default function Main() {
       throw new Error(error.message);
     }
   };
-  const fetchImages = async (url) => {
-    try {
-      const resp = await authApi(url);
-      console.log(resp);
-      setImages(data);
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  };
+  // const fetchImages = async (url) => {
+  //   try {
+  //     const resp = await publicApi(url);
+  //     console.log(resp);
+  //     setImages(data);
+  //   } catch (error) {
+  //     throw new Error(error.message);
+  //   }
+  // };
 
   useEffect(() => {
     fetchCategories("/category");
-    fetchImages("/image?limit=3&search=3");
+    // fetchImages("/image?limit=3&search=3");
   }, []);
 
-  // const images = [
-  //   {
-  //     imageUrl: "./banner.png",
-  //     id: "sin89enewe",
-  //     title: "Boys Playing",
-  //     creator: {
-  //       profilePicture: "./logo.png",
-  //       _id: "wwi929212h",
-  //       fullName: "Emmy Ogunmepon",
-  //     },
-  //   },
-  //   {
-  //     imageUrl: "./pp.png",
-  //     id: "sin89enewe",
-  //     title: "Boys Playing",
-  //     creator: {
-  //       profilePicture: "./logo.png",
-  //       _id: "wwi929212h",
-  //       fullName: "Emmy Ogunmepon",
-  //     },
-  //   },
-  //   {
-  //     imageUrl: "./banner.png",
-  //     id: "sin89enewe",
-  //     title: "Boys Playing",
-  //     creator: {
-  //       profilePicture: "./logo.png",
-  //       _id: "wwi929212h",
-  //       fullName: "Emmy Ogunmepon",
-  //     },
-  //   },
-  // ];
+  const images = [
+    {
+      imageUrl: "./banner.png",
+      id: "sin89enewe",
+      title: "Boys Playing",
+      creator: {
+        profilePicture: "./logo.png",
+        _id: "wwi929212h",
+        fullName: "Emmy Ogunmepon",
+      },
+    },
+    {
+      imageUrl: "./pp.png",
+      id: "sin89enewe",
+      title: "Boys Playing",
+      creator: {
+        profilePicture: "./logo.png",
+        _id: "wwi929212h",
+        fullName: "Emmy Ogunmepon",
+      },
+    },
+    {
+      imageUrl: "./banner.png",
+      id: "sin89enewe",
+      title: "Boys Playing",
+      creator: {
+        profilePicture: "./logo.png",
+        _id: "wwi929212h",
+        fullName: "Emmy Ogunmepon",
+      },
+    },
+  ];
 
   if (isLoading) {
     return (
@@ -101,7 +101,7 @@ export default function Main() {
         })}
       </div>
 
-      {/* <H_ImagesContainer images={images} /> */}
+      <H_ImagesContainer images={images} />
     </section>
   );
 }
