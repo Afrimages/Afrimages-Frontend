@@ -1,95 +1,64 @@
 "use client";
 
-import H_ImagesContainer from "@/components/UI/H_ImagesContainer";
 import React, { useEffect, useState } from "react";
-import { publicApi } from "@/utils/configs/axios-instance";
+import ImageContent from "../ImageContent";
+import {
+  fetchCategories,
+  fetchImages,
+  fetchCategoryImages,
+} from "@/utils/services";
+import Loader from "@/components/Common/Loaders/Loader";
 
 export default function Main() {
   const [isLoading, setIsLoading] = useState(true);
   const [value, setValue] = useState(0);
   const [categories, setCategories] = useState([]);
-  // const [images, setImages] = useState([]);
+  const [imagesData, setImagesData] = useState([]);
+  const [images, setImages] = useState([]);
 
-  const fetchCategories = async (url) => {
+  const getCategories = async () => {
     setIsLoading(true);
-    try {
-      const { data } = await publicApi(url);
-      data.unshift({ _id: "all", title: "all" });
-      setCategories(data);
+    const newCategories = await fetchCategories();
+    setCategories(newCategories);
+    setIsLoading(false);
+  };
+  const getImages = async () => {
+    setIsLoading(true);
+    const newImages = await fetchImages();
+    setImages(newImages);
+    setImagesData(newImages);
+    setIsLoading(false);
+  };
+  const getImagesByCategory = async (categoryId) => {
+    setIsLoading(true);
+    if (categoryId === "all") {
+      setImages(imagesData);
       setIsLoading(false);
-    } catch (error) {
+      return;
+    } else {
+      const newImagesData = await fetchCategoryImages(
+        `/image?category=${categoryId}`
+      );
+      setImages(newImagesData);
       setIsLoading(false);
-      throw new Error(error.message);
     }
   };
-  // const fetchImages = async (url) => {
-  //   try {
-  //     const resp = await publicApi(url);
-  //     console.log(resp);
-  //     setImages(data);
-  //   } catch (error) {
-  //     throw new Error(error.message);
-  //   }
-  // };
 
   useEffect(() => {
-    fetchCategories("/category");
-    // fetchImages("/image?limit=3&search=3");
+    getCategories();
+    getImages();
   }, []);
-
-  const images = [
-    {
-      imageUrl: "./banner.png",
-      id: "sin89enewe",
-      title: "Boys Playing",
-      creator: {
-        profilePicture: "./logo.png",
-        _id: "wwi929212h",
-        fullName: "Emmy Ogunmepon",
-      },
-    },
-    {
-      imageUrl: "./pp.png",
-      id: "sin89enewe",
-      title: "Boys Playing",
-      creator: {
-        profilePicture: "./logo.png",
-        _id: "wwi929212h",
-        fullName: "Emmy Ogunmepon",
-      },
-    },
-    {
-      imageUrl: "./banner.png",
-      id: "sin89enewe",
-      title: "Boys Playing",
-      creator: {
-        profilePicture: "./logo.png",
-        _id: "wwi929212h",
-        fullName: "Emmy Ogunmepon",
-      },
-    },
-  ];
-
-  if (isLoading) {
-    return (
-      <div className="flex flex-col justify-center items-center mt-8">
-        <div className="w-[50px] h-[50px] border-dashed border-4 border-orange800 rounded-[50%] animate-spin"></div>
-        {/* <h1 className="text-[20px] leading-[24px] font-bold mt-6">
-          Please Wait ...
-        </h1> */}
-      </div>
-    );
-  }
 
   return (
     <section className="my-10 px-xPadding">
-      <div className="flex gap-10 items-center overflow-auto justify-between">
+      <div className="flex flex-wrap gap-10 items-center justify-between my-8">
         {categories?.map(({ _id, title }) => {
           return (
             <p
               key={_id}
               onClick={() => {
                 setValue(_id);
+                getImagesByCategory(_id);
               }}
               className={`cursor-pointer w-fit capitalize ${
                 _id === value && "border-b-orange800 border-b-2 duration-300"
@@ -101,7 +70,21 @@ export default function Main() {
         })}
       </div>
 
-      <H_ImagesContainer images={images} />
+      <div className="grid lg:grid-cols-1 md:grid-cols-3 sm:grid-cols-1 gap-3">
+        {isLoading ? (
+          <Loader text={"Please wait..."} />
+        ) : (
+          images?.map((image) => {
+            if (typeof image.newDimension == "undefined") {
+              return;
+            } else {
+              return <ImageContent {...image} key={image._id} />;
+            }
+          })
+        )}
+      </div>
+
+      {/* <H_ImagesContainer images={images} /> */}
     </section>
   );
 }

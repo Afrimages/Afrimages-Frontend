@@ -44,6 +44,11 @@ const config = {
         lg: "48px",
       },
     },
+    screens: {
+      sm: "300px",
+      md: "768px",
+      lg: "1020px",
+    },
   },
   plugins: [
     require("@tailwindcss/forms")({

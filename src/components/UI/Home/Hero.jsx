@@ -22,15 +22,16 @@ export default function Hero() {
       />
 
       <div className="absolute top-0 left-0 w-full h-full text-center">
-        <div className="container flex items-center justify-center w-full h-full">
-          <div className="space-y-4">
+        <div className="px-xPadding flex items-center justify-center w-full h-full">
+          <div className="md:space-y-4">
             <h1 className="md:text-[2.5em] text-[1.8em] font-[800] text-white">
               Discover, Download, and Share the Finest Images from Afrimages
             </h1>
 
-            <p className="text-white w-full md:text-[1em] text-[1em] md:w-3/5 mx-auto">
-              Discover AfrImage's diverse collection, showcasing Africa's beauty. Bring it into your space with high-res
-              downloads, sharing globally. Embark on a visual journey effortlessly.
+            <p className="text-white w-full md:text-[1em] text-[1em] md:w-3/5 mx-auto my-6">
+              Discover AfrImage's diverse collection, showcasing Africa's
+              beauty. Bring it into your space with high-res downloads, sharing
+              globally. Embark on a visual journey effortlessly.
             </p>
 
             <div className="md:w-[50%] w-full flex items-center justify-center mx-auto">
@@ -46,7 +47,9 @@ export default function Hero() {
               </div>
 
               <Link href={`/search?query=${search}`}>
-                <button className="px-6 py-4 text-white rounded-r-lg bg-green800">Search</button>
+                <button className="px-6 py-4 text-white rounded-r-lg bg-green800">
+                  Search
+                </button>
               </Link>
             </div>
           </div>

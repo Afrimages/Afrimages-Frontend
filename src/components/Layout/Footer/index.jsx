@@ -110,7 +110,9 @@ const Footer = () => {
 
       <div className="w-full h-[1px] bg-white my-5"></div>
 
-      <p className="text-white">Afrimages - {new Date().getFullYear()}</p>
+      <p className="text-white text-center">
+        Afrimages - {new Date().getFullYear()}
+      </p>
     </div>
   );
 };
