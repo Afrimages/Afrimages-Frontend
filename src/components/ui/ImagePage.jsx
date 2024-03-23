@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import React from "react";
-import { RiAddLine, RiHeart2Line, RiLockUnlockFill, RiLockUnlockLine, RiShareLine } from "react-icons/ri";
+import { RiAddLine, RiHeart2Line, RiLockUnlockLine, RiShareLine } from "react-icons/ri";
 import H_ImagesContainer from "./H_ImagesContainer";
 
 const ImagePage = () => {
@@ -37,19 +38,23 @@ const ImagePage = () => {
     },
   ];
 
+  const downloadImage = () => {
+    const link = document.createElement("a");
+    link.href = "/pp.png";
+    link.download = "/pp.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="px-xPadding mt-24 min-h-[70vh]">
       <div className="flex justify-between profile_container">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
-            <Image
-              width={0}
-              height={0}
-              src="/pp.png"
-              alt=""
-              unoptimized
-              className="rounded-full w-[50px] h-[50px] object-cover"
-            />
+            <div className="size-[50px] rounded-full overflow-hidden">
+              <Image width={50} height={50} src="/pp.png" alt="" className="object-cover w-full h-full rounded-full" />
+            </div>
 
             <div>
               <p className="text-[1em] font-semibold">Dammy</p>
@@ -76,7 +81,7 @@ const ImagePage = () => {
       </div>
 
       <div className="my-6 picture">
-        <Image src="/pp.png" width={0} height={0} alt="Title" className="object-cover w-full h-3/5" unoptimized />
+        <Image src="/pp.png" width={1000} height={600} alt="Title" className="object-cover w-full h-3/5" />
       </div>
 
       <div className="details">
@@ -108,7 +113,12 @@ const ImagePage = () => {
             <p className="text-green800">Free</p>
           </div>
 
-          <div className="bg-orange800 text-white py-3 px-6 text-[0.8em] rounded-md w-fit cursor-pointer">Download</div>
+          <div
+            className="bg-orange800 text-white py-3 px-6 text-[0.8em] rounded-md w-fit cursor-pointer"
+            onClick={downloadImage}
+          >
+            Download
+          </div>
         </div>
       </div>
 

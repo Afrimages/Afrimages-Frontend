@@ -1,14 +1,14 @@
 "use client";
-import React, { useState } from "react";
-import { RiAddLine, RiHeart2Fill, RiHeart2Line } from "react-icons/ri";
+import React from "react";
+import { RiAddLine, RiHeart2Line } from "react-icons/ri";
 import Image from "next/image";
 import Link from "next/link";
 
 const ImageContent = (content) => {
   const downloadImage = () => {
     const link = document.createElement("a");
-    link.href = imageUrl;
-    link.download = "image.jpg";
+    link.href = content.imageUrl;
+    link.download = content.imageUrl;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -57,7 +57,9 @@ const ImageContent = (content) => {
               </div>
             </div>
 
-            <div className="img-icon">Download</div>
+            <div className="img-icon" onClick={downloadImage}>
+              Download
+            </div>
           </div>
         </div>
         {/* } */}
