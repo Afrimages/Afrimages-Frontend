@@ -5,17 +5,25 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ImageContent = (content) => {
+  const downloadImage = () => {
+    const link = document.createElement("a");
+    link.href = imageUrl;
+    link.download = "image.jpg";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <Link href={`/images/2`}>
       <div className="relative top-0 left-0 w-full -z-0 main-image">
         {/* <div className="overlay" /> */}
         <Image
-          width={100}
-          height={100}
+          width={500}
+          height={500}
           src={content.imageUrl}
           alt={content.title}
-          className="w-full h-full"
-          unoptimized
+          className="object-cover w-full h-full"
           unselectable="on"
         />
         {/* <div className="overlay-rev" /> */}
@@ -24,11 +32,10 @@ const ImageContent = (content) => {
           <div className="full-overlay" />
           <div className="absolute z-20 flex items-center gap-2 top-1 left-3">
             <Image
-              unoptimized
               unselectable="on"
               width={50}
               height={50}
-              src="/./pp.png"
+              src="/pp.png"
               alt=""
               className="w-[50px] h-[50px] object-cover rounded-full"
             />

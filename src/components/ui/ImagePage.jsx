@@ -16,7 +16,7 @@ const ImagePage = () => {
       },
     },
     {
-      imageUrl: "/./pp.png",
+      imageUrl: "/pp.png",
       id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -26,7 +26,7 @@ const ImagePage = () => {
       },
     },
     {
-      imageUrl: "/./banner.png",
+      imageUrl: "/banner.png",
       id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -45,7 +45,7 @@ const ImagePage = () => {
             <Image
               width={0}
               height={0}
-              src="/./pp.png"
+              src="/pp.png"
               alt=""
               unoptimized
               className="rounded-full w-[50px] h-[50px] object-cover"
@@ -76,7 +76,7 @@ const ImagePage = () => {
       </div>
 
       <div className="my-6 picture">
-        <Image src="/./pp.png" width={0} height={0} alt="Title" className="object-cover w-full h-3/5" unoptimized />
+        <Image src="/pp.png" width={0} height={0} alt="Title" className="object-cover w-full h-3/5" unoptimized />
       </div>
 
       <div className="details">

@@ -4,7 +4,7 @@ import V_ImagesContainer from "./V_ImagesContainer";
 const H_ImagesContainer = ({ images }) => {
   const images3 = [
     {
-      imageUrl: "/./pp.png",
+      imageUrl: "/pp.png",
       id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -14,7 +14,7 @@ const H_ImagesContainer = ({ images }) => {
       },
     },
     {
-      imageUrl: "/./banner.png",
+      imageUrl: "/banner.png",
       id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -24,7 +24,7 @@ const H_ImagesContainer = ({ images }) => {
       },
     },
     {
-      imageUrl: "/./bb.jpeg",
+      imageUrl: "/bb.jpeg",
       id: "sin89enewe",
       title: "Boys Playing",
       creator: {

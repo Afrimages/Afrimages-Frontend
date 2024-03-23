@@ -20,7 +20,7 @@ export default function Main() {
 
   const images = [
     {
-      imageUrl: "./banner.png",
+      imageUrl: "/banner.png",
       id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -30,7 +30,7 @@ export default function Main() {
       },
     },
     {
-      imageUrl: "./pp.png",
+      imageUrl: "/pp.png",
       id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -40,7 +40,7 @@ export default function Main() {
       },
     },
     {
-      imageUrl: "./banner.png",
+      imageUrl: "/banner.png",
       id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -55,7 +55,7 @@ export default function Main() {
 
   return (
     <section className="my-10 px-xPadding">
-      <div className="flex gap-10 items-center overflow-auto justify-between">
+      <div className="flex items-center justify-between gap-10 overflow-auto">
         {categories.map((item, i) => {
           return (
             <p key={i} className={`'cursor-pointer w-fit' ${select === i && "border-b-orange800 border-b-2"}`}>
