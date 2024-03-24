@@ -33,13 +33,25 @@ export default function Navbar({ active = 0 }) {
     <div className="grid bg-white  py-2 px-xPadding items-center justify-center grid-cols-2 border-b-[1px] border-b-gray-300 z-50 fixed top-0 left-0 right-0 mb-10">
       <div className="flex items-center gap-6">
         <Link href="/">
-          <Image width={200} height={200} src="/./logo.png" alt="" unoptimized className="md:h-[60px] w-auto" />
+          <Image
+            width={200}
+            height={200}
+            src="/./logo.png"
+            alt=""
+            priority
+            unoptimized
+            className="md:h-[60px] w-auto"
+          />
         </Link>
 
         <div className="md:flex gap-10 justify-center text-[0.8em] hidden">
           {nav.map((item, i) => {
             return (
-              <Link href={item.link} className={active == i ? "font-bold text-orange800" : ""} key={i}>
+              <Link
+                href={item.link}
+                className={active == i ? "font-bold text-orange800" : ""}
+                key={i}
+              >
                 {item.title}
               </Link>
             );
@@ -67,7 +79,9 @@ export default function Navbar({ active = 0 }) {
             </Link>
 
             <Link href="/profile">
-              <div className="px-4 py-2 text-white rounded-md cursor-pointer bg-green800">Profile</div>
+              <div className="px-4 py-2 text-white rounded-md cursor-pointer bg-green800">
+                Profile
+              </div>
             </Link>
           </>
         ) : (
@@ -77,7 +91,9 @@ export default function Navbar({ active = 0 }) {
             </Link>
 
             <Link href="/account/login">
-              <div className="px-4 py-2 text-white rounded-md cursor-pointer bg-green800">Sign In</div>
+              <div className="px-4 py-2 text-white rounded-md cursor-pointer bg-green800">
+                Sign In
+              </div>
             </Link>
           </>
         )}
@@ -92,20 +108,34 @@ export default function Navbar({ active = 0 }) {
       {mNav && (
         <div className="hidden md:flex bg-black fixed top-0 left-0 w-full h-[100vh] py-6 flex-col ">
           <div className="flex items-end justify-end px-5 pb-6 border-b-2 border-b-gray-700">
-            <HiX className={"text-white text-md"} onClick={() => setMNav(!mNav)} />
+            <HiX
+              className={"text-white text-md"}
+              onClick={() => setMNav(!mNav)}
+            />
           </div>
 
           <div className="flex flex-col items-end justify-end gap-10 p-5 my-3">
             {nav.map((n, i) => {
               return (
-                <Link href={n.link} className={active == i ? "font-bold text-orange800" : " text-white"} key={i}>
+                <Link
+                  href={n.link}
+                  className={
+                    active == i ? "font-bold text-orange800" : " text-white"
+                  }
+                  key={i}
+                >
                   {n.title}
                 </Link>
               );
             })}
 
             {user && (
-              <Link href="/profile" className={active == "p" ? "font-bold text-orange800" : " text-white"}>
+              <Link
+                href="/profile"
+                className={
+                  active == "p" ? "font-bold text-orange800" : " text-white"
+                }
+              >
                 Profile
               </Link>
             )}
