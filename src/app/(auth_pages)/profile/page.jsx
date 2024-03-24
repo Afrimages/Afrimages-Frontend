@@ -11,16 +11,6 @@ import { useSession } from "next-auth/react";
 const Page = () => {
   const { data: session } = useSession();
 
-  const [user] = useState(
-    session
-      ? session?.user
-      : {
-          name: "John Doe",
-          email: "john@gmail.com",
-          image: "/pp.png",
-        }
-  );
-
   const data = [
     {
       title: "Downloads",

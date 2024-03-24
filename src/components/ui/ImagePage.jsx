@@ -54,7 +54,7 @@ const ImagePage = () => {
           <div className="flex items-center gap-2">
             <div className="size-[50px] rounded-full overflow-hidden">
               <Image width={50} height={50} src="/pp.png" alt="" className="object-cover w-full h-full rounded-full" />
-            </div>
+          </div>
 
             <div>
               <p className="text-[1em] font-semibold">Dammy</p>
