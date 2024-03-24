@@ -1,63 +1,65 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { RiAddLine, RiHeart2Line, RiLockUnlockFill, RiLockUnlockLine, RiShareLine } from "react-icons/ri";
-import H_ImagesContainer from "./H_ImagesContainer";
+import { useParams } from "next/navigation";
+import { formatDate } from "@/utils/helpers/formatDate";
+import { fetchSingleImage } from "@/utils/services/singleImage.services";
+import Loader from "../Common/Loaders/Loader";
 
 const ImagePage = () => {
-  const images = [
-    {
-      imageUrl: "https://webunwto.s3.eu-west-1.amazonaws.com/2019-10/why-wildlife.jpg",
-      id: "sin89enewe",
-      title: "Boys Playing",
-      creator: {
-        profilePicture: "/./logo.png",
-        _id: "wwi929212h",
-        fullName: "Emmy Ogunmepon",
-      },
-    },
-    {
-      imageUrl: "/./pp.png",
-      id: "sin89enewe",
-      title: "Boys Playing",
-      creator: {
-        profilePicture: "/./logo.png",
-        _id: "wwi929212h",
-        fullName: "Emmy Ogunmepon",
-      },
-    },
-    {
-      imageUrl: "/./banner.png",
-      id: "sin89enewe",
-      title: "Boys Playing",
-      creator: {
-        profilePicture: "/./logo.png",
-        _id: "wwi929212h",
-        fullName: "Emmy Ogunmepon",
-      },
-    },
-  ];
+  const [isLoading, setIsLoading] = useState(true);
+  const [image, setImage] = useState({});
+  const { id } = useParams();
 
-  return (
-    <div className="px-xPadding mt-24 min-h-[70vh]">
+  const getSingleImage = async () => {
+    setIsLoading(true);
+    const newImage = await fetchSingleImage(id);
+    setImage(newImage);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    getSingleImage();
+  }, []);
+
+  const { _id, title, description, newDimension, downloads, views, shares, createdAt, userId } = image;
+
+  const downloadImage = () => {
+    const link = document.createElement("a");
+    link.href = newDimension.url;
+    link.download = newDimension.url;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return isLoading ? (
+    <div className="my-8">
+      <Loader text={"Please wait..."} />
+    </div>
+  ) : (
+    <div id={_id} className="px-xPadding mt-24 min-h-[70vh]">
       <div className="flex justify-between profile_container">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <Image
               width={0}
               height={0}
-              src="/./pp.png"
-              alt=""
+              src={userId?.profilePicture}
+              alt={userId?._id}
               unoptimized
               className="rounded-full w-[50px] h-[50px] object-cover"
             />
 
             <div>
-              <p className="text-[1em] font-semibold">Dammy</p>
-              <p className="text-[0.6em]">Creator</p>
+              <p className="text-[1em] font-semibold">{userId?.firstName}</p>
+              <p className="text-[0.6em]">Photographer</p>
             </div>
           </div>
 
-          <p className="text-[0.7em] text-orange800">Following Dammy</p>
+          <p className="text-[0.7em] text-orange800">Following {userId?.firstName}</p>
         </div>
 
         <div className="set-3">
@@ -76,33 +78,37 @@ const ImagePage = () => {
       </div>
 
       <div className="my-6 picture">
-        <Image src="/./pp.png" width={0} height={0} alt="Title" className="object-cover w-full h-3/5" unoptimized />
+        <Image
+          src={newDimension?.url}
+          width={newDimension?.width}
+          height={newDimension?.height}
+          alt={title}
+          className="object-cover w-full h-3/5"
+          priority
+          unoptimized
+        />
       </div>
 
       <div className="details">
-        <p className="font-bold">Name of the Image</p>
-        <p className="text-[0.8em]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga alias porro ducimus voluptates optio labore
-          corporis id assumenda, quo asperiores, omnis dolorum consequuntur? Laudantium perspiciatis ipsum quam dolore,
-          voluptatum illo?
-        </p>
+        <p className="font-bold"></p>
+        <p className="text-[0.8em]">{description}</p>
       </div>
 
-      <div className="flex flex-col items-center justify-between gap-0 py-4 sm:gap-6 md:flex-row sm:items-start sm:justify-between">
-        <div className="flex flex-col gap-6 sm:flex-row sm:gap-3">
+      <div className="flex items-center justify-between py-4 sm:flex-col sm:justify-between sm:gap-6 sm:items-start">
+        <div className="flex gap-6 sm:flex-col sm:gap-3">
           <p className="text-[0.8em]">
-            Views <span className="text-[1em] font-semibold">1246</span>
+            Views <span className="text-[1em] font-semibold">{views}</span>
           </p>
           <p className="text-[0.8em]">
-            Downloads <span className="text-[1em] font-semibold">1246</span>
+            Downloads <span className="text-[1em] font-semibold">{downloads}</span>
           </p>
           <p className="text-[0.8em]">
-            Shared <span className="text-[1em] font-semibold">1246</span>
+            Shared <span className="text-[1em] font-semibold">{shares}</span>
           </p>
-          <p className="text-[0.8em]">Published on 10- July-2020 </p>
+          <p className="text-[0.8em]">Published on {formatDate(createdAt)}</p>
         </div>
 
-        <div className="flex flex-col items-start gap-3 sm:items-center sm:flex-row">
+        <div className="flex items-center gap-3 sm:flex-col sm:items-start">
           <div className="flex items-center gap-1">
             <RiLockUnlockLine size="20" className="text-green800" />
             <p className="text-green800">Free</p>
@@ -114,8 +120,6 @@ const ImagePage = () => {
 
       <div>
         <h2 className="font-bold text-[1.5em]">Similar Images</h2>
-
-        <H_ImagesContainer images={images} />
       </div>
     </div>
   );

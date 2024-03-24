@@ -247,3 +247,10 @@ input[type="file"] {
   width: 100%;
   @apply p-3 border border-gray-500 rounded-md focus:outline-none md:w-full;
 }
+
+input,
+button,
+a,
+textarea {
+  outline: none !important;
+}

@@ -16,7 +16,7 @@ export const authApi = axios.create({
 // for routes that needs authentication
 authApi.interceptors.request.use(async (config) => {
   // get user token
-  const session = getSession(authOptions);
+  const session = getSession();
 
   if (!session || !session.token) return config;
 

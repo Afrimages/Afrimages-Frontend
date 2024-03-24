@@ -10,8 +10,8 @@ const MyImage = (content) => {
         <div className="w-full h-[300px] relative top-0 left-0 -z-0 main-image">
           <div className="overlay" />
           <Image
-            width={100}
-            height={100}
+            width={500}
+            height={500}
             src={content.imageUrl}
             alt={content.title}
             className="object-cover w-full h-full"

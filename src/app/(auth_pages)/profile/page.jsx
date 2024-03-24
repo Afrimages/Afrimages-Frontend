@@ -11,16 +11,6 @@ import { useSession } from "next-auth/react";
 const Page = () => {
   const { data: session } = useSession();
 
-  const [user] = useState(
-    session
-      ? session?.user
-      : {
-          name: "John Doe",
-          email: "john@gmail.com",
-          image: "/pp.png",
-        }
-  );
-
   const data = [
     {
       title: "Downloads",
@@ -42,7 +32,7 @@ const Page = () => {
 
   const images3 = [
     {
-      imageUrl: "/./pp.png",
+      imageUrl: "/pp.png",
       _id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -52,7 +42,7 @@ const Page = () => {
       },
     },
     {
-      imageUrl: "/./banner.png",
+      imageUrl: "/banner.png",
       _id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -62,7 +52,7 @@ const Page = () => {
       },
     },
     {
-      imageUrl: "/./bb.jpeg",
+      imageUrl: "/bb.jpeg",
       _id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -72,7 +62,7 @@ const Page = () => {
       },
     },
     {
-      imageUrl: "/./pp.png",
+      imageUrl: "/pp.png",
       _id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -82,7 +72,7 @@ const Page = () => {
       },
     },
     {
-      imageUrl: "/./banner.png",
+      imageUrl: "/banner.png",
       _id: "sin89enewe",
       title: "Boys Playing",
       creator: {
@@ -92,7 +82,7 @@ const Page = () => {
       },
     },
     {
-      imageUrl: "/./bb.jpeg",
+      imageUrl: "/bb.jpeg",
       _id: "sin89enewe",
       title: "Boys Playing",
       creator: {
