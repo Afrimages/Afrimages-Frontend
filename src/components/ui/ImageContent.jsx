@@ -6,35 +6,30 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 const ImageContent = (content) => {
-  const { data: session } = useSession();
-
-  const user = session.user ?? {};
-
   const downloadImage = () => {
     const link = document.createElement("a");
-    link.href = content.imageUrl;
-    link.download = content.imageUrl;
+    link.href = content.newDimension.url;
+    link.download = content.newDimension.url;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
-  console.log({ content });
-
   return (
-    <Link href={`/images/${content.id}`}>
-      <div className="relative top-0 left-0 w-full -z-0 main-image">
+    <Link href={`/images/${content._id}`}>
+      <div className="relative top-0 left-0 w-full -z-0 main-image my-6">
         {/* <div className="overlay" /> */}
-        <Image
-          width={500}
-          height={500}
-          src={content.imageUrl}
-          alt={content.title}
-          className="object-cover w-full h-full"
-          unselectable="on"
-        />
+        <div className="w-full h-full">
+          <Image
+            width={500}
+            height={500}
+            src={content.newDimension?.url}
+            alt={content.title}
+            className="object-cover w-full h-full"
+            unselectable="on"
+          />
+        </div>
         {/* <div className="overlay-rev" /> */}
-
         <div className="image-options">
           <div className="full-overlay" />
           <div className="absolute z-20 flex items-center gap-2 top-1 left-3">
@@ -42,12 +37,12 @@ const ImageContent = (content) => {
               unselectable="on"
               width={50}
               height={50}
-              src="/pp.png"
-              alt=""
+              src={content.userId?.profilePicture}
+              alt="profile-picture"
               className="w-[50px] h-[50px] object-cover rounded-full"
             />
             <div className="flex flex-col leading-tight text-white">
-              <p className="font-bold">{user?.name}</p>
+              <p className="font-bold">{content.userId?.firstName}</p>
             </div>
           </div>
           <div className="absolute z-20 flex items-center justify-between w-full px-3 bottom-1">

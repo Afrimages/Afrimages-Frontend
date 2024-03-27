@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { RiAddLine, RiHeart2Line, RiLockUnlockFill, RiLockUnlockLine, RiShareLine } from "react-icons/ri";
+import {
+  RiAddLine,
+  RiHeart2Line,
+  RiLockUnlockFill,
+  RiLockUnlockLine,
+  RiShareLine,
+} from "react-icons/ri";
 import { useParams } from "next/navigation";
 import { formatDate } from "@/utils/helpers/formatDate";
 import { fetchSingleImage } from "@/utils/services/singleImage.services";
@@ -11,11 +17,11 @@ import Loader from "../Common/Loaders/Loader";
 const ImagePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [image, setImage] = useState({});
-  const { id } = useParams();
+  const { id: imageId } = useParams();
 
   const getSingleImage = async () => {
     setIsLoading(true);
-    const newImage = await fetchSingleImage(id);
+    const newImage = await fetchSingleImage(imageId);
     setImage(newImage);
     setIsLoading(false);
   };
@@ -24,7 +30,17 @@ const ImagePage = () => {
     getSingleImage();
   }, []);
 
-  const { _id, title, description, newDimension, downloads, views, shares, createdAt, userId } = image;
+  const {
+    _id,
+    title,
+    description,
+    newDimension,
+    downloads,
+    views,
+    shares,
+    createdAt,
+    userId,
+  } = image;
 
   const downloadImage = () => {
     const link = document.createElement("a");
@@ -36,11 +52,11 @@ const ImagePage = () => {
   };
 
   return isLoading ? (
-    <div className="my-8">
+    <div className="my-[8rem]">
       <Loader text={"Please wait..."} />
     </div>
   ) : (
-    <div id={_id} className="px-xPadding mt-24 min-h-[70vh]">
+    <div id={_id} className="px-xPadding pt-24 min-h-[70vh]">
       <div className="flex justify-between profile_container">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
@@ -49,7 +65,6 @@ const ImagePage = () => {
               height={0}
               src={userId?.profilePicture}
               alt={userId?._id}
-              unoptimized
               className="rounded-full w-[50px] h-[50px] object-cover"
             />
 
@@ -59,7 +74,9 @@ const ImagePage = () => {
             </div>
           </div>
 
-          <p className="text-[0.7em] text-orange800">Following {userId?.firstName}</p>
+          <p className="text-[0.7em] text-orange800">
+            Following {userId?.firstName}
+          </p>
         </div>
 
         <div className="set-3">
@@ -85,7 +102,6 @@ const ImagePage = () => {
           alt={title}
           className="object-cover w-full h-3/5"
           priority
-          unoptimized
         />
       </div>
 
@@ -100,7 +116,8 @@ const ImagePage = () => {
             Views <span className="text-[1em] font-semibold">{views}</span>
           </p>
           <p className="text-[0.8em]">
-            Downloads <span className="text-[1em] font-semibold">{downloads}</span>
+            Downloads{" "}
+            <span className="text-[1em] font-semibold">{downloads}</span>
           </p>
           <p className="text-[0.8em]">
             Shared <span className="text-[1em] font-semibold">{shares}</span>
@@ -114,7 +131,12 @@ const ImagePage = () => {
             <p className="text-green800">Free</p>
           </div>
 
-          <div className="bg-orange800 text-white py-3 px-6 text-[0.8em] rounded-md w-fit cursor-pointer">Download</div>
+          <div
+            className="bg-orange800 text-white py-3 px-6 text-[0.8em] rounded-md w-fit cursor-pointer"
+            onClick={downloadImage}
+          >
+            Download
+          </div>
         </div>
       </div>
 

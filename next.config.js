@@ -10,6 +10,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "webunwto.s3.eu-west-1.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+      },
     ],
   },
 };

@@ -2,7 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import ImageContent from "../ImageContent";
-import { fetchCategories, fetchImages, fetchCategoryImages } from "@/utils/services";
+import {
+  fetchCategories,
+  fetchImages,
+  fetchCategoryImages,
+} from "@/utils/services";
 import Loader from "@/components/Common/Loaders/Loader";
 
 export default function Main() {
@@ -32,7 +36,7 @@ export default function Main() {
       setIsLoading(false);
       return;
     } else {
-      const newImagesData = await fetchCategoryImages(`/image?category=${categoryId}`);
+      const newImagesData = await fetchCategoryImages(categoryId);
       setImages(newImagesData);
       setIsLoading(false);
     }
@@ -69,7 +73,7 @@ export default function Main() {
           <Loader text={"Please wait..."} />
         ) : (
           images?.map((image) => {
-            if (typeof image.newDimension == "undefined") {
+            if (typeof image.newDimension?.url == "undefined") {
               return;
             } else {
               return <ImageContent {...image} key={image._id} />;
